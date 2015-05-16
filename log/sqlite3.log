@@ -1,0 +1,6 @@
+  [1m[36mLti2Tp::Registry Load (0.2ms)[0m  [1mSELECT "lti2_tp_registries".* FROM "lti2_tp_registries"[0m
+SQLite3::SQLException: near "TRUNCATE": syntax error: TRUNCATE "lti2_tp_registries"
+SQLite3::SQLException: near "TRUNCATE": syntax error: TRUNCATE "lti2_tp_tools"
+  [1m[36mLti2Tp::Registry Load (0.1ms)[0m  [1mSELECT "lti2_tp_registries".* FROM "lti2_tp_registries"[0m
+SQLite3::SQLException: near "TRUNCATE": syntax error: TRUNCATE "lti2_tp_registries"
+SQLite3::SQLException: near "TRUNCATE": syntax error: TRUNCATE "lti2_tp_tools"
