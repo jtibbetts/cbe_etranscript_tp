@@ -6,7 +6,9 @@ class LtiRegistrationWipsController < InheritedResources::Base
     @lti_registration_wip = LtiRegistrationWip.new
 
     # On orig registration, first assume tenant_name == name
-    @lti_registration_wip.tenant_name = registration.message_type == 'registration' ? registration.tenant_basename : registration.tenant_name
+    timeref = Time.now.strftime('%I%M.%S')
+    @lti_registration_wip.tenant_name = registration.message_type == 'registration' \
+            ? "#{registration.tenant_basename}-#{timeref}" : registration.tenant_name
 
     @lti_registration_wip.registration_id = registration_id
     @lti_registration_wip.registration_return_url = params[:return_url]
@@ -45,9 +47,12 @@ class LtiRegistrationWipsController < InheritedResources::Base
       redirect_to_registration(@registration, disposition) and return
     end
     tool_proxy_wrapper = JsonWrapper.new(@registration.tool_proxy_json)
+    tool_proxy_response_wrapper = JsonWrapper.new(@registration.tool_proxy_response)
 
     tenant.tenant_key = tool_proxy_wrapper.first_at('tool_proxy_guid')
-    tenant.secret = tool_proxy_wrapper.first_at('security_contract.shared_secret')
+
+    @registration.final_secret = change_secret(tenant, tool_proxy_wrapper, tool_proxy_response_wrapper)
+    tenant.secret = @registration.final_secret
     tenant.save
 
     @registration.tenant_id = tenant.id
@@ -61,10 +66,6 @@ class LtiRegistrationWipsController < InheritedResources::Base
     disposition = @registration.prepare_tool_proxy('reregister')
     @registration.status = "reregistered"
     @registration.save!
-
-    tool_proxy_wrapper = JsonWrapper.new(@registration.tool_proxy_json)
-    tenant.secret = tool_proxy_wrapper.first_at('security_contract.shared_secret')
-    tenant.save
 
     return_url = @registration.launch_presentation_return_url + disposition
 
@@ -84,6 +85,18 @@ class LtiRegistrationWipsController < InheritedResources::Base
   end
 
   private
+
+  def change_secret(tenant, tool_proxy_wrapper, tool_proxy_response_wrapper)
+    if tool_proxy_wrapper.first_at('security_contract.shared_secret').present?
+      final_secret = tool_proxy_wrapper.first_at('security_contract.shared_secret')
+    else
+      if tool_proxy_wrapper.first_at('security_contract.tp_half_shared_secret').present?
+        final_secret = tool_proxy_response_wrapper.first_at('tc_half_shared_secret') \
+          + tool_proxy_wrapper.first_at('security_contract.tp_half_shared_secret')
+      end
+    end
+    final_secret
+  end
 
   def redirect_to_registration registration, disposition
     redirect_to "#{@lti_registration_wip.registration_return_url}#{disposition}&id=#{registration.id}"

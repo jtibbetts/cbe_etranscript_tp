@@ -2,9 +2,9 @@ development:
   adapter: mysql2
   host: localhost
   encoding: utf8
-  database: tpsampleapp
-  username: ltiuser
-  password: ltipswd
+  database: cbe_etranscript_tp
+  username: cbeuser
+  password: cbepswd
   pool: 5
   timeout: 5000
 
@@ -13,9 +13,9 @@ mysql:
   adapter: mysql2
   host: localhost
   encoding: utf8
-  database: tpsampleapp
-  username: ltiuser
-  password: ltipswd
+  database: cbe_etranscript_tp
+  username: cbeuser
+  password: cbepswd
   pool: 5
   timeout: 5000
 

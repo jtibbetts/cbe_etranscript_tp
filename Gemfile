@@ -7,7 +7,7 @@ gem 'rails', '~> 4.1.6'
 gem 'mysql2', '~> 0.3.13'
 gem 'sqlite3'
 
-gem 'lti2', git: 'git@github.com:vitalsource/lti2-reference.git', branch: 'LTI2.1-splitsecret'
+gem 'lti2', path: '../LTI2-Reference'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 #Active admin dependencies
@@ -29,7 +29,7 @@ group :development do
   gem 'coffee-rails', '~> 4.0.0'
   gem 'uglifier', '~> 2.4.0'
   gem 'execjs'
-  gem 'therubyracer', '~> 0.12.0'
+  gem 'therubyracer', '~> 0.12.0' 
   gem 'quiet_assets'
   gem 'better_errors'
   gem 'binding_of_caller'
