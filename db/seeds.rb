@@ -4,3 +4,4 @@ Lti2Tp::Registration.delete_all
 LtiRegistrationWip.delete_all
 Tenant.delete_all
 Iresource.delete_all
+RecordOfPerformance.delete_all

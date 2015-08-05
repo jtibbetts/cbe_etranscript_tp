@@ -38,6 +38,8 @@ class RecordOfPerformancesController < ApplicationController
     pretty_rop = JSON.pretty_generate(rop_wrapper.root)
     logger.info(pretty_rop)
 
+    rop_json = JSON.dump(rop_wrapper.root)
+
     first_name = rop_wrapper.root['user']['schema:givenName']
     last_name = rop_wrapper.root['user']['schema:familyName']
 
@@ -51,7 +53,7 @@ class RecordOfPerformancesController < ApplicationController
                                last_name: last_name,
                                organization_name: rop_wrapper.first_at('organization.legal_name'),
                                program_name: program_name,
-                               rop_json: pretty_rop)
+                               rop_json: rop_json)
 
     render text: "<pre>#{pretty_rop}</pre>"
   end
@@ -73,21 +75,14 @@ class RecordOfPerformancesController < ApplicationController
     rops = RecordOfPerformance.all
     result = []
     rops.each do |rop|
-      rop_hash = marshall_rop(rop)
+      rop_hash = marshall_rop(rop, false)
       result << rop_hash
     end
 
-    render json: result
+    render text: "<pre>#{JSON.pretty_generate(result)}</pre>"
   end
 
   def show
-    id = params[:id]
-    rop = RecordOfPerformance.find(id)
-
-    render json: marshall_rop(rop)
-  end
-
-  def show_full_rop
     id = params[:id]
     rop = RecordOfPerformance.find(id)
 
@@ -96,8 +91,8 @@ class RecordOfPerformancesController < ApplicationController
 
   private
 
-  def marshall_rop(rop)
-    {
+  def marshall_rop(rop, is_full_rop_json_included)
+    result = {
         "@id" => "#{record_of_performances_url}/#{rop.id}",
         "@type" => 'RecordOfPerformanceId',
         "rop_id" => rop.rop_id,
@@ -109,5 +104,7 @@ class RecordOfPerformancesController < ApplicationController
         "organization_name" => rop.organization_name,
         "program_name" => rop.program_name
     }
+    result["rop_json"] = rop.rop_json if is_full_rop_json_included
+    result
   end
 end
