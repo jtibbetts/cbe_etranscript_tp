@@ -9431,3 +9431,15 @@ Processing by RecordOfPerformancesController#index as HTML
   [1m[36mRecordOfPerformance Load (0.4ms)[0m  [1mSELECT `record_of_performances`.* FROM `record_of_performances`[0m
   Rendered text template (0.0ms)
 Completed 200 OK in 13ms (Views: 9.1ms | ActiveRecord: 0.4ms)
+  [1m[36mLti2Tp::Registry Load (0.4ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+Started POST "/lti2_tp/registrations" for 127.0.0.1 at 2015-08-08 07:17:45 -0700
+Processing by Lti2Tp::RegistrationsController#create as HTML
+  Parameters: {"lti_message_type"=>"ToolProxyRegistrationRequest", "lti_version"=>"LTI-2p0", "user_id"=>"2", "roles"=>"urn:lti:sysrole:ims/lis/SysAdmin", "tc_profile_url"=>"http://rails.kinexis.com:4000/cbe_tc/lti2_tc/tool_consumer_profiles/26daf360-2006-0133-b55b-406c8f40a599", "reg_key"=>"26da0850-2006-0133-b55b-406c8f40a599", "reg_password"=>"[FILTERED]", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/cbe_tc/admin/tool_actions", "launch_presentation_document_target"=>"window", "tool_proxy_guid"=>"61d244ce2e1d1cd03bd1f88b2aa087ec"}
+  [1m[36mLti2Tp::Tool Load (0.4ms)[0m  [1mSELECT  `lti2_tp_tools`.* FROM `lti2_tp_tools`   ORDER BY `lti2_tp_tools`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 26.2ms)
+Started POST "/lti2_tp/registrations" for 127.0.0.1 at 2015-08-08 07:17:59 -0700
+Processing by Lti2Tp::RegistrationsController#create as HTML
+  Parameters: {"lti_message_type"=>"ToolProxyRegistrationRequest", "lti_version"=>"LTI-2p0", "user_id"=>"2", "roles"=>"urn:lti:sysrole:ims/lis/SysAdmin", "tc_profile_url"=>"http://rails.kinexis.com:4000/cbe_tc/lti2_tc/tool_consumer_profiles/26daf360-2006-0133-b55b-406c8f40a599", "reg_key"=>"26da0850-2006-0133-b55b-406c8f40a599", "reg_password"=>"[FILTERED]", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/cbe_tc/admin/tool_actions", "launch_presentation_document_target"=>"window", "tool_proxy_guid"=>"61d244ce2e1d1cd03bd1f88b2aa087ec"}
+  [1m[35mLti2Tp::Tool Load (0.3ms)[0m  SELECT  `lti2_tp_tools`.* FROM `lti2_tp_tools`   ORDER BY `lti2_tp_tools`.`id` ASC LIMIT 1
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms)

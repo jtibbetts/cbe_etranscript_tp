@@ -3134,3 +3134,5 @@ Migrating to AddRopModel (20150730191551)
   [1m[36mLti2Tp::Registry Load (0.5ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
   [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
   [1m[36mSQL (13.2ms)[0m  [1mDELETE FROM `record_of_performances`[0m
+  [1m[36mLti2Tp::Registry Load (1.1ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
