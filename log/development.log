@@ -3136,3 +3136,1080 @@ Migrating to AddRopModel (20150730191551)
   [1m[36mSQL (13.2ms)[0m  [1mDELETE FROM `record_of_performances`[0m
   [1m[36mLti2Tp::Registry Load (1.1ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
   [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+  [1m[36mLti2Tp::Registry Load (0.3ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+
+
+Started POST "/lti2_tp/registrations" for 127.0.0.1 at 2015-08-16 18:58:50 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Lti2Tp::RegistrationsController#create as HTML
+  Parameters: {"lti_message_type"=>"ToolProxyRegistrationRequest", "lti_version"=>"LTI-2p0", "user_id"=>"2", "roles"=>"urn:lti:sysrole:ims/lis/SysAdmin", "tc_profile_url"=>"http://rails.kinexis.com:4000/cbe_tc/lti2_tc/tool_consumer_profiles/a6a8dbe0-26a0-0133-70d3-20c9d07c6451", "reg_key"=>"a6a8d780-26a0-0133-70d3-20c9d07c6451", "reg_password"=>"[FILTERED]", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/cbe_tc/admin/tool_actions", "launch_presentation_document_target"=>"window", "tool_proxy_guid"=>"b85e7b60af5c611f26e9cdbb21c39b6d"}
+  [1m[35mLti2Tp::Tool Load (1.5ms)[0m  SELECT  `lti2_tp_tools`.* FROM `lti2_tp_tools`   ORDER BY `lti2_tp_tools`.`id` ASC LIMIT 1
+Completed 500 Internal Server Error in 174ms (ActiveRecord: 44.0ms)
+
+JSON::ParserError - 795: unexpected token at '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+  <HEAD><TITLE>Internal Server Error</TITLE></HEAD>
+  <BODY>
+    <H1>Internal Server Error</H1>
+    No route matches [GET] &quot;/cbe_tc/lti2_tc/tool_consumer_profiles/a6a8dbe0-26a0-0133-70d3-20c9d07c6451&quot;
+    <HR>
+    <ADDRESS>
+     WEBrick/1.3.1 (Ruby/2.1.4/2014-10-27) at
+     rails.kinexis.com:4000
+    </ADDRESS>
+  </BODY>
+</HTML>
+':
+  json (1.8.3) lib/json/common.rb:155:in `parse'
+  json (1.8.3) lib/json/common.rb:334:in `load'
+  /Users/johntibbetts/git/LTI2-Reference/lti2_tp/app/models/lti2_tp/registration.rb:40:in `get_tool_consumer_profile'
+  /Users/johntibbetts/git/LTI2-Reference/lti2_tp/app/controllers/lti2_tp/registrations_controller.rb:38:in `create'
+  actionpack (4.1.12) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:552:in `block (2 levels) in compile'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:502:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.12) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.12) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/railtie.rb:194:in `method_missing'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  activerecord (4.1.12) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.12) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.12) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.1.12) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.12) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/lti2_tp/__better_errors/a656cdb10166cb2d/variables" for 127.0.0.1 at 2015-08-16 18:58:50 -0500
+
+
+Started POST "/lti2_tp/registrations" for 127.0.0.1 at 2015-08-16 18:59:27 -0500
+Processing by Lti2Tp::RegistrationsController#create as HTML
+  Parameters: {"lti_message_type"=>"ToolProxyRegistrationRequest", "lti_version"=>"LTI-2p0", "user_id"=>"2", "roles"=>"urn:lti:sysrole:ims/lis/SysAdmin", "tc_profile_url"=>"http://rails.kinexis.com:4000/cbe_tc/lti2_tc/tool_consumer_profiles/a6a8dbe0-26a0-0133-70d3-20c9d07c6451", "reg_key"=>"a6a8d780-26a0-0133-70d3-20c9d07c6451", "reg_password"=>"[FILTERED]", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/cbe_tc/admin/tool_actions", "launch_presentation_document_target"=>"window", "tool_proxy_guid"=>"b85e7b60af5c611f26e9cdbb21c39b6d"}
+  [1m[36mLti2Tp::Tool Load (7.1ms)[0m  [1mSELECT  `lti2_tp_tools`.* FROM `lti2_tp_tools`   ORDER BY `lti2_tp_tools`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 233ms (ActiveRecord: 7.0ms)
+
+JSON::ParserError - 795: unexpected token at '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+  <HEAD><TITLE>Internal Server Error</TITLE></HEAD>
+  <BODY>
+    <H1>Internal Server Error</H1>
+    No route matches [GET] &quot;/cbe_tc/lti2_tc/tool_consumer_profiles/a6a8dbe0-26a0-0133-70d3-20c9d07c6451&quot;
+    <HR>
+    <ADDRESS>
+     WEBrick/1.3.1 (Ruby/2.1.4/2014-10-27) at
+     rails.kinexis.com:4000
+    </ADDRESS>
+  </BODY>
+</HTML>
+':
+  json (1.8.3) lib/json/common.rb:155:in `parse'
+  json (1.8.3) lib/json/common.rb:334:in `load'
+  /Users/johntibbetts/git/LTI2-Reference/lti2_tp/app/models/lti2_tp/registration.rb:40:in `get_tool_consumer_profile'
+  /Users/johntibbetts/git/LTI2-Reference/lti2_tp/app/controllers/lti2_tp/registrations_controller.rb:38:in `create'
+  actionpack (4.1.12) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:552:in `block (2 levels) in compile'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:502:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.12) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.12) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/railtie.rb:194:in `method_missing'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  activerecord (4.1.12) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.12) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.12) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.1.12) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.12) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/lti2_tp/registrations" for 127.0.0.1 at 2015-08-16 18:59:35 -0500
+Processing by Lti2Tp::RegistrationsController#create as HTML
+  Parameters: {"lti_message_type"=>"ToolProxyRegistrationRequest", "lti_version"=>"LTI-2p0", "user_id"=>"2", "roles"=>"urn:lti:sysrole:ims/lis/SysAdmin", "tc_profile_url"=>"http://rails.kinexis.com:4000/cbe_tc/lti2_tc/tool_consumer_profiles/c08c0a20-26a0-0133-70d3-20c9d07c6451", "reg_key"=>"c08c0750-26a0-0133-70d3-20c9d07c6451", "reg_password"=>"[FILTERED]", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/cbe_tc/admin/tool_actions", "launch_presentation_document_target"=>"window", "tool_proxy_guid"=>"034d969bc287cf42484620dbbf4c519c"}
+  [1m[35mLti2Tp::Tool Load (0.9ms)[0m  SELECT  `lti2_tp_tools`.* FROM `lti2_tp_tools`   ORDER BY `lti2_tp_tools`.`id` ASC LIMIT 1
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.9ms)
+
+JSON::ParserError - 795: unexpected token at '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+  <HEAD><TITLE>Internal Server Error</TITLE></HEAD>
+  <BODY>
+    <H1>Internal Server Error</H1>
+    No route matches [GET] &quot;/cbe_tc/lti2_tc/tool_consumer_profiles/c08c0a20-26a0-0133-70d3-20c9d07c6451&quot;
+    <HR>
+    <ADDRESS>
+     WEBrick/1.3.1 (Ruby/2.1.4/2014-10-27) at
+     rails.kinexis.com:4000
+    </ADDRESS>
+  </BODY>
+</HTML>
+':
+  json (1.8.3) lib/json/common.rb:155:in `parse'
+  json (1.8.3) lib/json/common.rb:334:in `load'
+  /Users/johntibbetts/git/LTI2-Reference/lti2_tp/app/models/lti2_tp/registration.rb:40:in `get_tool_consumer_profile'
+  /Users/johntibbetts/git/LTI2-Reference/lti2_tp/app/controllers/lti2_tp/registrations_controller.rb:38:in `create'
+  actionpack (4.1.12) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:552:in `block (2 levels) in compile'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:502:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.12) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.12) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/railtie.rb:194:in `method_missing'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  activerecord (4.1.12) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.12) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.12) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.1.12) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.12) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/lti2_tp/__better_errors/0bdd0c87d11f08d9/variables" for 127.0.0.1 at 2015-08-16 18:59:35 -0500
+
+
+Started POST "/lti2_tp/__better_errors/0bdd0c87d11f08d9/eval" for 127.0.0.1 at 2015-08-16 18:59:47 -0500
+  [1m[36mLti2Tp::Registry Load (0.3ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+  [1m[36mLti2Tp::Registry Load (1.0ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.4ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+  [1m[36mLti2Tp::Registry Load (0.9ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.7ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+
+
+Started GET "/lti2_tp/registrations" for 127.0.0.1 at 2015-08-16 19:03:16 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Lti2Tp::RegistrationsController#index as HTML
+Completed 404 Not Found in 5ms (ActiveRecord: 1.7ms)
+
+ActiveRecord::RecordNotFound - Couldn't find Lti2Tp::Registration without an ID:
+  activerecord (4.1.12) lib/active_record/relation/finder_methods.rb:411:in `find_with_ids'
+  activerecord (4.1.12) lib/active_record/relation/finder_methods.rb:68:in `find'
+  activerecord (4.1.12) lib/active_record/querying.rb:3:in `find'
+  /Users/johntibbetts/git/LTI2-Reference/lti2_tp/app/controllers/lti2_tp/registrations_controller.rb:96:in `index'
+  actionpack (4.1.12) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:552:in `block (2 levels) in compile'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:502:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.12) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.12) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/railtie.rb:194:in `method_missing'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  activerecord (4.1.12) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.12) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.12) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.1.12) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.12) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/lti2_tp/__better_errors/e4d4626daf392c42/variables" for 127.0.0.1 at 2015-08-16 19:03:17 -0500
+
+
+Started POST "/lti2_tp/registrations" for 127.0.0.1 at 2015-08-16 19:03:27 -0500
+Processing by Lti2Tp::RegistrationsController#create as HTML
+  Parameters: {"lti_message_type"=>"ToolProxyRegistrationRequest", "lti_version"=>"LTI-2p0", "user_id"=>"2", "roles"=>"urn:lti:sysrole:ims/lis/SysAdmin", "tc_profile_url"=>"http://rails.kinexis.com:4000/cbe_tc/lti2_tc/tool_consumer_profiles/01f441b0-26a1-0133-70d3-20c9d07c6451", "reg_key"=>"01f43910-26a1-0133-70d3-20c9d07c6451", "reg_password"=>"[FILTERED]", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/cbe_tc/admin/tool_actions", "launch_presentation_document_target"=>"window", "tool_proxy_guid"=>"5bacb2e57df4f130f559c391d6ed717b"}
+  [1m[35mLti2Tp::Tool Load (0.3ms)[0m  SELECT  `lti2_tp_tools`.* FROM `lti2_tp_tools`   ORDER BY `lti2_tp_tools`.`id` ASC LIMIT 1
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 19.7ms)
+
+JSON::ParserError - 795: unexpected token at '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+  <HEAD><TITLE>Internal Server Error</TITLE></HEAD>
+  <BODY>
+    <H1>Internal Server Error</H1>
+    No route matches [GET] &quot;/cbe_tc/lti2_tc/tool_consumer_profiles/01f441b0-26a1-0133-70d3-20c9d07c6451&quot;
+    <HR>
+    <ADDRESS>
+     WEBrick/1.3.1 (Ruby/2.1.4/2014-10-27) at
+     rails.kinexis.com:4000
+    </ADDRESS>
+  </BODY>
+</HTML>
+':
+  json (1.8.3) lib/json/common.rb:155:in `parse'
+  json (1.8.3) lib/json/common.rb:334:in `load'
+  /Users/johntibbetts/git/LTI2-Reference/lti2_tp/app/models/lti2_tp/registration.rb:40:in `get_tool_consumer_profile'
+  /Users/johntibbetts/git/LTI2-Reference/lti2_tp/app/controllers/lti2_tp/registrations_controller.rb:38:in `create'
+  actionpack (4.1.12) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:552:in `block (2 levels) in compile'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:502:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.12) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.12) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/railtie.rb:194:in `method_missing'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  activerecord (4.1.12) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.12) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.12) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.1.12) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.12) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/lti2_tp/__better_errors/2fa397156a4bf21e/variables" for 127.0.0.1 at 2015-08-16 19:03:27 -0500
+
+
+Started POST "/lti2_tp/__better_errors/2fa397156a4bf21e/eval" for 127.0.0.1 at 2015-08-16 19:05:46 -0500
+
+
+Started POST "/lti2_tp/registrations" for 127.0.0.1 at 2015-08-16 19:06:20 -0500
+Processing by Lti2Tp::RegistrationsController#create as HTML
+  Parameters: {"lti_message_type"=>"ToolProxyRegistrationRequest", "lti_version"=>"LTI-2p0", "user_id"=>"2", "roles"=>"urn:lti:sysrole:ims/lis/SysAdmin", "tc_profile_url"=>"http://rails.kinexis.com:4000/cbe_tc/lti2_tc/tool_consumer_profiles/01f441b0-26a1-0133-70d3-20c9d07c6451", "reg_key"=>"01f43910-26a1-0133-70d3-20c9d07c6451", "reg_password"=>"[FILTERED]", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/cbe_tc/admin/tool_actions", "launch_presentation_document_target"=>"window", "tool_proxy_guid"=>"5bacb2e57df4f130f559c391d6ed717b"}
+  [1m[36mLti2Tp::Tool Load (1.3ms)[0m  [1mSELECT  `lti2_tp_tools`.* FROM `lti2_tp_tools`   ORDER BY `lti2_tp_tools`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.3ms)
+
+JSON::ParserError - 795: unexpected token at '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<HTML>
+  <HEAD><TITLE>Internal Server Error</TITLE></HEAD>
+  <BODY>
+    <H1>Internal Server Error</H1>
+    No route matches [GET] &quot;/cbe_tc/lti2_tc/tool_consumer_profiles/01f441b0-26a1-0133-70d3-20c9d07c6451&quot;
+    <HR>
+    <ADDRESS>
+     WEBrick/1.3.1 (Ruby/2.1.4/2014-10-27) at
+     rails.kinexis.com:4000
+    </ADDRESS>
+  </BODY>
+</HTML>
+':
+  json (1.8.3) lib/json/common.rb:155:in `parse'
+  json (1.8.3) lib/json/common.rb:334:in `load'
+  /Users/johntibbetts/git/LTI2-Reference/lti2_tp/app/models/lti2_tp/registration.rb:40:in `get_tool_consumer_profile'
+  /Users/johntibbetts/git/LTI2-Reference/lti2_tp/app/controllers/lti2_tp/registrations_controller.rb:38:in `create'
+  actionpack (4.1.12) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:552:in `block (2 levels) in compile'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:502:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.12) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.12) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/railtie.rb:194:in `method_missing'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  activerecord (4.1.12) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.12) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.12) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.1.12) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.12) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/lti2_tp/__better_errors/fc569fa0e3d756c3/variables" for 127.0.0.1 at 2015-08-16 19:06:20 -0500
+  [1m[36mLti2Tp::Registry Load (0.4ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+
+
+Started POST "/lti2_tp/registrations" for 127.0.0.1 at 2015-08-16 19:08:30 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Lti2Tp::RegistrationsController#create as HTML
+  Parameters: {"lti_message_type"=>"ToolProxyRegistrationRequest", "lti_version"=>"LTI-2p0", "user_id"=>"2", "roles"=>"urn:lti:sysrole:ims/lis/SysAdmin", "tc_profile_url"=>"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/0074da10-26a2-0133-70d4-20c9d07c6451", "reg_key"=>"0074d280-26a2-0133-70d4-20c9d07c6451", "reg_password"=>"[FILTERED]", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/admin/tool_actions", "launch_presentation_document_target"=>"window", "tool_proxy_guid"=>"37b0176d89d3675e724a7ab35fc3b9e0"}
+  [1m[35mLti2Tp::Tool Load (0.5ms)[0m  SELECT  `lti2_tp_tools`.* FROM `lti2_tp_tools`   ORDER BY `lti2_tp_tools`.`id` ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO `lti2_tp_registrations` (`created_at`, `launch_presentation_return_url`, `lti_version`, `message_type`, `reg_key`, `reg_password`, `status`, `tc_profile_url`, `tenant_basename`, `tenant_name`, `tool_consumer_profile_json`, `tool_id`, `tool_profile_json`, `tool_proxy_guid`, `updated_at`, `user_id`) VALUES ('2015-08-17 00:08:31', 'http://rails.kinexis.com:4000/admin/tool_actions', 'LTI-2p0', 'registration', '0074d280-26a2-0133-70d4-20c9d07c6451', 'bc8777eebfa469eaa99ba162c8388ded', 'received', 'http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/0074da10-26a2-0133-70d4-20c9d07c6451', 'Elan University', 'Elan University', '{\"@context\":[\"http://purl.imsglobal.org/ctx/lti/v2/ToolConsumerProfile\",{\"ltitcp\":\"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/0074da10-26a2-0133-70d4-20c9d07c6451#\"}],\"@type\":\"ToolConsumerProfile\",\"@id\":\"http://rails.kinexis.com:4000/tool_consumer_profiles/0074da10-26a2-0133-70d4-20c9d07c6451\",\"lti_version\":\"LTI-2p0\",\"guid\":\"0074da10-26a2-0133-70d4-20c9d07c6451\",\"product_instance\":{\"guid\":\"dcddf9808107-81ea-eaa4-1edf-5d24568c\",\"product_info\":{\"product_name\":{\"default_value\":\"Elan/LuMoS\",\"key\":\"product.name\"},\"product_version\":\"3.1\",\"description\":{\"default_value\":\"Elan University/LuMoS Learning Platform\",\"key\":\"product.version\"},\"technical_description\":{\"default_value\":\"LTI 1, 1.1 and 2.0 compliant\",\"key\":\"product.technicalDescription\"},\"product_family\":{\"code\":\"LuMoS\",\"vendor\":{\"code\":\"lms.LuMoS.org\",\"vendor_name\":{\"default_value\":\"LuMoS Corporation\",\"key\":\"product.vendor.name\"},\"description\":{\"default_value\":\"LuMoS Corporation is a fictitious vendor of a Learning Management System\",\"key\":\"product.vendor.description\"},\"website\":\"http://lms.LuMoS.org/products/omega\",\"timestamp\":\"2012-07-09T012:08:16-04:00\",\"contact\":{\"email\":\"support@lms.LuMoS.org\"}}}},\"support\":{\"email\":\"john.tibbetts@kinexis.com\"},\"service_owner\":{\"@id\":\"http://ec2.LuMoS.org/ServiceOwner\",\"timestamp\":\"2012-03-28T09:08:16-04:00\",\"service_owner_name\":{\"default_value\":\"Elan University\",\"key\":\"service_owner.name\"},\"description\":{\"default_value\":\"Elan University EC2 Cloud\",\"key\":\"service_owner.description\"},\"support\":{\"email\":\"techsupport@elan.edu\"}},\"service_provider\":{\"@id\":\"http://ec2.LuMoS.org/ServiceProvider\",\"guid\":\"ec2.LuMoS.org\",\"timestamp\":\"2012-07-09T012:08:16-04:00\",\"service_provider_name\":{\"default_value\":\"Elan University\",\"key\":\"service_provider.name\"},\"description\":{\"default_value\":\"Elan University EC2 Cloud\",\"key\":\"service_provider.description\"},\"support\":{\"email\":\"support@yasp.LuMoS.org\"}}},\"capability_offered\":[\"basic-lti-launch-request\",\"Result.autocreate\",\"Result.sourcedId\",\"Result.uri\",\"User.id\",\"User.username\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"CourseSection.sourcedId\",\"CourseOffering.label\",\"Person.sourcedId\",\"Person.email.primary\",\"Person.name.given\",\"Person.name.family\",\"Person.name.full\",\"Membership.role\",\"ToolProxy.custom.url\",\"ToolProxyBinding.custom.url\",\"LtiLink.custom.url\",\"ToolConsumerProfile.url\"],\"service_offered\":[{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxy.collection\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tools\",\"format\":[\"application/vnd.ims.lti.v2.toolproxy+json\"],\"action\":[\"POST\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxy.item\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tools/{tool_proxy_guid}\",\"format\":[\"application/vnd.ims.lti.v2.toolproxy+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:Result.item\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/resources/Result/{sourcedId}\",\"format\":[\"application/vnd.ims.lis.v2.result+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:LtiLinkSettings\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tool_settings/{tool_proxy_guid}/ltilink/{link_id}\",\"format\":[\"application/vnd.ims.lti.v2.toolsettings+json\",\"application/vnd.ims.lti.v2.toolsettings.simple+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxyBindingSettings\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tool_settings/{tool_proxy_guid}/context/{context_id}\",\"format\":[\"application/vnd.ims.lti.v2.toolsettings+json\",\"application/vnd.ims.lti.v2.toolsettings.simple+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxySettings\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tool_settings/{tool_proxy_guid}\",\"format\":[\"application/vnd.ims.lti.v2.toolsettings+json\",\"application/vnd.ims.lti.v2.toolsettings.simple+json\"],\"action\":[\"GET\",\"PUT\"]}]}', 2, '{\"base_url_choice\":[{\"default_base_url\":\"http://rails.kinexis.com:5000\",\"selector\":{\"applies_to\":[\"IconEndpoint\",\"MessageHandler\"]}}],\"lti_version\":\"LTI-2p0\",\"message\":[{\"message_type\":[\"ToolProxyRegistrationRequest\",\"ToolProxyReregistrationRequest\"],\"parameter\":[{\"name\":\"tc_profile_url\",\"variable\":\"ToolConsumerProfile.url\"}],\"path\":\"http://rails.kinexis.com:5000/lti2_tp/reregistrations\"}],\"product_instance\":{\"guid\":\"fd75124a-140e-470f-944c-114d2d92bb40\",\"product_info\":{\"description\":{\"default_value\":\"Fabericious reflowable ePub3 Textbook\",\"key\":\"tool.description\"},\"product_family\":{\"code\":\"assessment-tool\",\"vendor\":{\"code\":\"fabericious.org\",\"contact\":{\"email\":\"info@fabericious.com\"},\"description\":{\"default_value\":\"Fabericious is a leading provider of interactive tools for education\",\"key\":\"tool.vendor.description\"},\"timestamp\":\"2012-04-05T09:08:16-04:00\",\"vendor_name\":{\"default_value\":\"Fab\",\"key\":\"tool.vendor.name\"},\"website\":\"{http://rails.kinexis.com:5000}\"}},\"product_name\":{\"default_value\":\"LTI2 BookTools\",\"key\":\"tool.name\"},\"product_version\":\"10.3\",\"technical_description\":{\"default_value\":\"Support provided for all LTI 1 extensions as well as LTI 2\",\"key\":\"tool.technical\"}},\"service_provider\":{\"description\":{\"default_value\":\"Provider of high performance managed hosting environments\",\"key\":\"service_provider.description\"},\"guid\":\"18e7ea50-3d6d-4f6b-aff2-ed3ab577716c\",\"service_provider_name\":{\"default_value\":\"Amazon Cloud\",\"key\":\"service_provider.name\"},\"support\":{\"email\":\"support@ec2.fabericious.com\"},\"timestamp\":\"2012-04-05T09:08:16-04:00\"},\"support\":{\"email\":\"helpdesk@fabericious.com\"}},\"resource_handler\":[{\"description\":{\"default_value\":\"Settings service\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"ToolProxy.custom.url\",\"ToolProxyBinding.custom.url\",\"LtiLink.custom.url\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"name\":\"tool_proxy_custom_url\",\"variable\":\"ToolProxy.custom.url\"},{\"name\":\"tool_proxy_binding_custom_url\",\"variable\":\"ToolProxyBinding.custom.url\"},{\"name\":\"lti_link_custom_url\",\"variable\":\"LtiLink.custom.url\"}],\"path\":\"/settings\"}],\"resource_name\":{\"default_value\":\"Settings\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"setting\"}},{\"description\":{\"default_value\":\"Echo service\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"fixed\":\"Narcissus\",\"name\":\"referrer\"},{\"fixed\":\"3.14159\",\"name\":\"pi\"},{\"name\":\"user_primary_email\",\"variable\":\"Person.email.primary\"},{\"name\":\"discipline\",\"variable\":\"CourseSection.label\"}],\"path\":\"/echoes\"}],\"resource_name\":{\"default_value\":\"Echo\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"echo\"}},{\"description\":{\"default_value\":\"Record of Performance Launch\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"fixed\":\"http://rails.kinexis.com:5000/lti2_tp/users\",\"name\":\"tp_user_service\"}],\"path\":\"/rop_launch\"}],\"resource_name\":{\"default_value\":\"Record of Performance\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"echo\"}},{\"description\":{\"default_value\":\"Interactive resource\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"Result.autocreate\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"name\":\"vbid\"},{\"name\":\"result_uri\",\"variable\":\"Result.uri\"}],\"path\":\"/iresources\"}],\"resource_name\":{\"default_value\":\"InteractiveResource\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"iresource\"}}],\"service_offered\":[{\"@id\":\"http://rails.kinexis.com:5000/RecordOfPerformance.collection\",\"@type\":\"RestService\",\"action\":[\"POST\"],\"endpoint\":\"http://rails.kinexis.com:5000/record_of_performances\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance+json\"},{\"@id\":\"http://rails.kinexis.com:5000/RecordOfPerformance.collection\",\"@type\":\"RestService\",\"action\":[\"GET\"],\"endpoint\":\"http://rails.kinexis.com:5000/record_of_performances\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance.id+json\"},{\"@id\":\"http://rails.kinexis.com:5000/RecordOfPerformance.item\",\"@type\":\"RestService\",\"action\":[\"GET\"],\"endpoint\":\"http://rails.kinexis.com:5000/record_of_performances/{rop_id}\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance+json\"}]}', '37b0176d89d3675e724a7ab35fc3b9e0', '2015-08-17 00:08:31', '2')
+  [1m[36m (14.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:5000/lti_registration_wips?registration_id=42&return_url=/lti2_tp/registrations
+Completed 302 Found in 191ms (ActiveRecord: 42.4ms)
+
+
+Started GET "/lti_registration_wips?registration_id=42&return_url=/lti2_tp/registrations" for 127.0.0.1 at 2015-08-16 19:08:31 -0500
+Processing by LtiRegistrationWipsController#index as HTML
+  Parameters: {"registration_id"=>"42", "return_url"=>"/lti2_tp/registrations"}
+  [1m[35mLti2Tp::Registration Load (1.1ms)[0m  SELECT  `lti2_tp_registrations`.* FROM `lti2_tp_registrations`  WHERE `lti2_tp_registrations`.`id` = 42 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `lti_registration_wips` (`created_at`, `product_name`, `registration_id`, `registration_return_url`, `support_email`, `tenant_name`, `updated_at`) VALUES ('2015-08-17 00:08:31', 'Elan/LuMoS', 42, '/lti2_tp/registrations', 'john.tibbetts@kinexis.com', 'Elan University-0708.31', '2015-08-17 00:08:31')
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  Rendered lti_registration_wips/_form.html.haml (233.2ms)
+  Rendered lti_registration_wips/index.html.haml within layouts/application (242.7ms)
+Completed 200 OK in 492ms (Views: 455.8ms | ActiveRecord: 17.1ms)
+
+
+Started PATCH "/lti_registration_wips/43" for 127.0.0.1 at 2015-08-16 19:08:33 -0500
+Processing by LtiRegistrationWipsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sE9Z1V+8BF2MpJy9PqpJUnVdyXfiCF/aHwyWbNWOK4A=", "lti_registration_wip"=>{"support_email"=>"john.tibbetts@kinexis.com", "product_name"=>"Elan/LuMoS", "tenant_name"=>"Elan University-0708.31"}, "commit"=>"Update Lti registration wip", "id"=>"43"}
+  [1m[35mLtiRegistrationWip Load (6.3ms)[0m  SELECT  `lti_registration_wips`.* FROM `lti_registration_wips`  WHERE `lti_registration_wips`.`id` = 43 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36mLti2Tp::Registration Load (0.9ms)[0m  [1mSELECT  `lti2_tp_registrations`.* FROM `lti2_tp_registrations`  WHERE `lti2_tp_registrations`.`id` = 42 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE `lti2_tp_registrations` SET `tenant_name` = 'Elan University-0708.31', `updated_at` = '2015-08-17 00:08:33' WHERE `lti2_tp_registrations`.`id` = 42[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mLtiRegistrationWip Load (0.3ms)[0m  [1mSELECT  `lti_registration_wips`.* FROM `lti_registration_wips`  WHERE `lti_registration_wips`.`id` = 43 LIMIT 1[0m
+  [1m[35mLti2Tp::Registration Load (0.3ms)[0m  SELECT  `lti2_tp_registrations`.* FROM `lti2_tp_registrations`  WHERE `lti2_tp_registrations`.`id` = 42 LIMIT 1
+  [1m[36m (3.0ms)[0m  [1mBEGIN[0m
+  [1m[35mTenant Exists (18.4ms)[0m  SELECT  1 AS one FROM `tenants`  WHERE `tenants`.`tenant_name` = BINARY 'Elan University-0708.31' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `tenants` (`created_at`, `tenant_name`, `updated_at`) VALUES ('2015-08-17 00:08:33', 'Elan University-0708.31', '2015-08-17 00:08:33')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE `lti2_tp_registrations` SET `end_registration_id` = '05f741d0-26a2-0133-70d5-20c9d07c6451', `tool_proxy_json` = '{\"@context\":\"http://purl.imsglobal.org/ctx/lti/v2/ToolProxy\",\"@type\":\"ToolProxy\",\"tool_proxy_guid\":\"37b0176d89d3675e724a7ab35fc3b9e0\",\"lti_version\":\"LTI-2p0\",\"tool_consumer_profile\":\"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/0074da10-26a2-0133-70d4-20c9d07c6451\",\"tool_profile\":{\"base_url_choice\":[{\"default_base_url\":\"http://rails.kinexis.com:5000\",\"selector\":{\"applies_to\":[\"IconEndpoint\",\"MessageHandler\"]}}],\"lti_version\":\"LTI-2p0\",\"message\":[{\"message_type\":[\"ToolProxyRegistrationRequest\",\"ToolProxyReregistrationRequest\"],\"parameter\":[{\"name\":\"tc_profile_url\",\"variable\":\"ToolConsumerProfile.url\"}],\"path\":\"http://rails.kinexis.com:5000/lti2_tp/reregistrations\"}],\"product_instance\":{\"guid\":\"fd75124a-140e-470f-944c-114d2d92bb40\",\"product_info\":{\"description\":{\"default_value\":\"Fabericious reflowable ePub3 Textbook\",\"key\":\"tool.description\"},\"product_family\":{\"code\":\"assessment-tool\",\"vendor\":{\"code\":\"fabericious.org\",\"contact\":{\"email\":\"info@fabericious.com\"},\"description\":{\"default_value\":\"Fabericious is a leading provider of interactive tools for education\",\"key\":\"tool.vendor.description\"},\"timestamp\":\"2012-04-05T09:08:16-04:00\",\"vendor_name\":{\"default_value\":\"Fab\",\"key\":\"tool.vendor.name\"},\"website\":\"{http://rails.kinexis.com:5000}\"}},\"product_name\":{\"default_value\":\"LTI2 BookTools\",\"key\":\"tool.name\"},\"product_version\":\"10.3\",\"technical_description\":{\"default_value\":\"Support provided for all LTI 1 extensions as well as LTI 2\",\"key\":\"tool.technical\"}},\"service_provider\":{\"description\":{\"default_value\":\"Provider of high performance managed hosting environments\",\"key\":\"service_provider.description\"},\"guid\":\"18e7ea50-3d6d-4f6b-aff2-ed3ab577716c\",\"service_provider_name\":{\"default_value\":\"Amazon Cloud\",\"key\":\"service_provider.name\"},\"support\":{\"email\":\"support@ec2.fabericious.com\"},\"timestamp\":\"2012-04-05T09:08:16-04:00\"},\"support\":{\"email\":\"helpdesk@fabericious.com\"}},\"resource_handler\":[{\"description\":{\"default_value\":\"Settings service\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"ToolProxy.custom.url\",\"ToolProxyBinding.custom.url\",\"LtiLink.custom.url\",\"ToolProxy.custom.url\",\"ToolProxyBinding.custom.url\",\"LtiLink.custom.url\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"name\":\"tool_proxy_custom_url\",\"variable\":\"ToolProxy.custom.url\"},{\"name\":\"tool_proxy_binding_custom_url\",\"variable\":\"ToolProxyBinding.custom.url\"},{\"name\":\"lti_link_custom_url\",\"variable\":\"LtiLink.custom.url\"}],\"path\":\"/settings\"}],\"resource_name\":{\"default_value\":\"Settings\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"setting\"}},{\"description\":{\"default_value\":\"Echo service\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"Person.email.primary\",\"CourseSection.label\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"fixed\":\"Narcissus\",\"name\":\"referrer\"},{\"fixed\":\"3.14159\",\"name\":\"pi\"},{\"name\":\"user_primary_email\",\"variable\":\"Person.email.primary\"},{\"name\":\"discipline\",\"variable\":\"CourseSection.label\"}],\"path\":\"/echoes\"}],\"resource_name\":{\"default_value\":\"Echo\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"echo\"}},{\"description\":{\"default_value\":\"Record of Performance Launch\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"fixed\":\"http://rails.kinexis.com:5000/lti2_tp/users\",\"name\":\"tp_user_service\"}],\"path\":\"/rop_launch\"}],\"resource_name\":{\"default_value\":\"Record of Performance\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"echo\"}},{\"description\":{\"default_value\":\"Interactive resource\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"Result.autocreate\",\"Result.uri\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"name\":\"vbid\"},{\"name\":\"result_uri\",\"variable\":\"Result.uri\"}],\"path\":\"/iresources\"}],\"resource_name\":{\"default_value\":\"InteractiveResource\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"iresource\"}}],\"service_offered\":[{\"@id\":\"http://rails.kinexis.com:5000/RecordOfPerformance.collection\",\"@type\":\"RestService\",\"action\":[\"POST\"],\"endpoint\":\"http://rails.kinexis.com:5000/record_of_performances\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance+json\"},{\"@id\":\"http://rails.kinexis.com:5000/RecordOfPerformance.collection\",\"@type\":\"RestService\",\"action\":[\"GET\"],\"endpoint\":\"http://rails.kinexis.com:5000/record_of_performances\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance.id+json\"},{\"@id\":\"http://rails.kinexis.com:5000/RecordOfPerformance.item\",\"@type\":\"RestService\",\"action\":[\"GET\"],\"endpoint\":\"http://rails.kinexis.com:5000/record_of_performances/{rop_id}\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance+json\"}]},\"security_contract\":{\"shared_secret\":\"c1c94049d102559139f6100f507112b4\",\"tool_service\":[{\"@type\":\"RestServiceProfile\",\"service\":\"ltitcp:ToolProxy.collection\",\"action\":[\"POST\"]},{\"@type\":\"RestServiceProfile\",\"service\":\"ltitcp:ToolProxy.item\",\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestServiceProfile\",\"service\":\"ltitcp:Result.item\",\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestServiceProfile\",\"service\":\"ltitcp:LtiLinkSettings\",\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestServiceProfile\",\"service\":\"ltitcp:ToolProxyBindingSettings\",\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestServiceProfile\",\"service\":\"ltitcp:ToolProxySettings\",\"action\":[\"GET\",\"PUT\"]}]}}', `updated_at` = '2015-08-17 00:08:33' WHERE `lti2_tp_registrations`.`id` = 42
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `lti2_tp_registrations` SET `status` = 'register', `tool_proxy_response` = '{\"@context\":\"http://purl.imsglobal.org/ctx/lti/v2/ToolProxyId\",\"@type\":\"ToolProxy\",\"@id\":null,\"tool_proxy_guid\":\"37b0176d89d3675e724a7ab35fc3b9e0\"}', `updated_at` = '2015-08-17 00:08:34' WHERE `lti2_tp_registrations`.`id` = 42[0m
+  [1m[35m (11.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTenant Exists (7.8ms)[0m  SELECT  1 AS one FROM `tenants`  WHERE (`tenants`.`tenant_name` = BINARY 'Elan University-0708.31' AND `tenants`.`id` != 42) LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE `tenants` SET `secret` = 'c1c94049d102559139f6100f507112b4', `tenant_key` = '37b0176d89d3675e724a7ab35fc3b9e0', `updated_at` = '2015-08-17 00:08:34' WHERE `tenants`.`id` = 42[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `lti2_tp_registrations` SET `final_secret` = 'c1c94049d102559139f6100f507112b4', `tenant_id` = 42, `updated_at` = '2015-08-17 00:08:34' WHERE `lti2_tp_registrations`.`id` = 42
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:5000/lti2_tp/registrations?status=success&tool_guid=37b0176d89d3675e724a7ab35fc3b9e0&&id=42
+Completed 302 Found in 620ms (ActiveRecord: 80.1ms)
+
+
+Started GET "/lti2_tp/registrations?status=success&tool_guid=37b0176d89d3675e724a7ab35fc3b9e0&&id=42" for 127.0.0.1 at 2015-08-16 19:08:34 -0500
+Processing by Lti2Tp::RegistrationsController#index as HTML
+  Parameters: {"status"=>"success", "tool_guid"=>"37b0176d89d3675e724a7ab35fc3b9e0", "id"=>"42"}
+  [1m[35mLti2Tp::Registration Load (0.4ms)[0m  SELECT  `lti2_tp_registrations`.* FROM `lti2_tp_registrations`  WHERE `lti2_tp_registrations`.`id` = 42 LIMIT 1
+Redirected to http://rails.kinexis.com:4000/admin/tool_actions?status=success&tool_guid=37b0176d89d3675e724a7ab35fc3b9e0
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started POST "/record_of_performances" for 127.0.0.1 at 2015-08-16 19:08:59 -0500
+Processing by RecordOfPerformancesController#create as HTML
+Can't verify CSRF token authenticity
+AuthHdr_Parms: {:oauth_consumer_key=>"37b0176d89d3675e724a7ab35fc3b9e0", :oauth_nonce=>"2380568869752", :oauth_signature_method=>"HMAC-SHA1", :oauth_timestamp=>"1439770139", :oauth_version=>"1.0", :oauth_callback=>"about:blank", :oauth_body_hash=>"NJCtC9zl8Mu74W+7zR4aEHLj6so=", :oauth_signature=>"lpRzHcAQGv9rfS8Hp2VGrm5wjhI="}
+  [1m[36mTenant Load (0.6ms)[0m  [1mSELECT  `tenants`.* FROM `tenants`  WHERE `tenants`.`tenant_key` = '37b0176d89d3675e724a7ab35fc3b9e0'  ORDER BY `tenants`.`id` ASC LIMIT 1[0m
+  [1m[35mLti2Tp::Registration Load (0.3ms)[0m  SELECT  `lti2_tp_registrations`.* FROM `lti2_tp_registrations`  WHERE `lti2_tp_registrations`.`tenant_id` = 42  ORDER BY `lti2_tp_registrations`.`id` ASC LIMIT 1
+AuthHdr_Parms: {:oauth_consumer_key=>"37b0176d89d3675e724a7ab35fc3b9e0", :oauth_nonce=>"2380568869752", :oauth_signature_method=>"HMAC-SHA1", :oauth_timestamp=>"1439770139", :oauth_version=>"1.0", :oauth_callback=>"about:blank", :oauth_body_hash=>"NJCtC9zl8Mu74W+7zR4aEHLj6so=", :oauth_signature=>"lpRzHcAQGv9rfS8Hp2VGrm5wjhI="}
+in verify_signature
+RecordOfPerformance as received: 
+{
+  "@context": {
+    "@vocab": "http://purl.kinexis.com:8888/ctx/cbe/v1/record_of_performance/"
+  },
+  "@id": "http://rails.kinexis.com:4000/14f7dd00-26a2-0133-70d4-20c9d07c6451",
+  "@type": "RecordOfPerformance",
+  "created_at": "2015-08-16T19:08:59-05:00",
+  "tool_consumer_profile": {
+    "@id": "http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/",
+    "lti_version": "LTI-2p0",
+    "product_name": "Elan/LuMoS",
+    "service_provider_name": "Elan University"
+  },
+  "user": {
+    "@id": "http://rails.kinexis.com:4000/users/23",
+    "familyName": "Arne",
+    "givenName": "Tom",
+    "email": "tarne@hotmail.com",
+    "sourced_id": 0
+  },
+  "organization": {
+    "@id": "http://rails.kinexis.com:4000/organizations/11",
+    "legal_name": "IMS Learning Institute, LLC",
+    "website": "ili.imsglobal.org"
+  },
+  "program": {
+    "@id": "http://rails.kinexis.com:4000/programs/11",
+    "label": "Master of Business Admin FP",
+    "degree_level": "MBA",
+    "courses": [
+      {
+        "@id": "http://rails.kinexis.com:4000/course_sections/101",
+        "label": "MBA-FP6004-1",
+        "title": "MBA-FP 6004 Section 1",
+        "competencies": [
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/191",
+            "label": "",
+            "statement": "Examine the use of critical, strategic, and ethical thinking in decision-making",
+            "achievement": "NonProficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/192",
+            "label": "mba6004-1",
+            "statement": "Integrate the Internet, collaboration, and virtual environment strategies into general business management planning and decision-making.",
+            "achievement": "Distinguished"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/193",
+            "label": "mba6004-2",
+            "statement": "Integrate business strategies into general business management planning and decision-making.",
+            "achievement": "Distinguished"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/194",
+            "label": "mba6004-3",
+            "statement": "Analyze relevant global business concerns for the future.",
+            "achievement": "Distinguished"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/195",
+            "label": "mba6004-4",
+            "statement": "Communicate in a manner that is professional and consistent with expectations for members of the business professions.",
+            "achievement": "NonProficient"
+          }
+        ]
+      },
+      {
+        "@id": "http://rails.kinexis.com:4000/course_sections/103",
+        "label": "MBA-FP6006-1",
+        "title": "MBA-FP 6006 Section 1",
+        "competencies": [
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/196",
+            "label": "mba6006-1",
+            "statement": "Analyze contemporary leadership models and practices from the perspective of innovation in a global environment.",
+            "achievement": "Proficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/197",
+            "label": "mba6006-2",
+            "statement": "Assess the behaviors that drive innovation and how leaders can use those behaviors to create innovative organizations.",
+            "achievement": "Distinguished"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/198",
+            "label": "mba6006-3",
+            "statement": "Assess what leaders of innovation do to shape organizational culture and processes.",
+            "achievement": "Proficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/199",
+            "label": "mba6006-4",
+            "statement": "Communicate in a manner that is professional and consistent with expectations for members of the business professions.",
+            "achievement": "NonProficient"
+          }
+        ]
+      },
+      {
+        "@id": "http://rails.kinexis.com:4000/course_sections/104",
+        "label": "MBA-FP6008-1",
+        "title": "MBA-FP 6008 Section 1",
+        "competencies": [
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/200",
+            "label": "mba6008-1",
+            "statement": "Apply the theories, models, and practices of economic theory to create value for the firm.",
+            "achievement": "Distinguished"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/201",
+            "label": "mba6008-2",
+            "statement": "Assess the impact of ethical and regulatory considerations on economic decisions",
+            "achievement": "Basic"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/202",
+            "label": "mba6008-3",
+            "statement": "Analyze the macroeconomic environment of corporate operations",
+            "achievement": "Basic"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/203",
+            "label": "mba6008-4",
+            "statement": "Analyze the microeconomic environment of corporate operations",
+            "achievement": "NonProficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/204",
+            "label": "mba6008-5",
+            "statement": "Communicate in a manner that is professional and consistent with expectations for members of the business professions.ply collaborative techniques to the virtual environment.",
+            "achievement": "Proficient"
+          }
+        ]
+      },
+      {
+        "@id": "http://rails.kinexis.com:4000/course_sections/109",
+        "label": "MBA-FP6008-1",
+        "title": "MBA-FP 6008 Section 1",
+        "competencies": [
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/200",
+            "label": "mba6008-1",
+            "statement": "Apply the theories, models, and practices of economic theory to create value for the firm.",
+            "achievement": "Distinguished"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/201",
+            "label": "mba6008-2",
+            "statement": "Assess the impact of ethical and regulatory considerations on economic decisions",
+            "achievement": "NonProficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/202",
+            "label": "mba6008-3",
+            "statement": "Analyze the macroeconomic environment of corporate operations",
+            "achievement": "Proficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/203",
+            "label": "mba6008-4",
+            "statement": "Analyze the microeconomic environment of corporate operations",
+            "achievement": "Basic"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/204",
+            "label": "mba6008-5",
+            "statement": "Communicate in a manner that is professional and consistent with expectations for members of the business professions.ply collaborative techniques to the virtual environment.",
+            "achievement": "NonProficient"
+          }
+        ]
+      },
+      {
+        "@id": "http://rails.kinexis.com:4000/course_sections/110",
+        "label": "MBA-FP6012-1",
+        "title": "MBA-FP 6012 Section 1",
+        "competencies": [
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/205",
+            "label": "mba6012-1",
+            "statement": "Apply theories, models, and practices of marketing",
+            "achievement": "Distinguished"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/206",
+            "label": "mba6012-2",
+            "statement": "Integrate fundamental principles and applications of marketing to address business problems.",
+            "achievement": "Basic"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/207",
+            "label": "mba6012-3",
+            "statement": "Develop innovative and sustainable solutions to strategic marketing challenges",
+            "achievement": "NonProficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/208",
+            "label": "mba6012-4",
+            "statement": "Integrate marketing analyses into general business management planning and decision making",
+            "achievement": "Distinguished"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/209",
+            "label": "mba6012-5",
+            "statement": "Communicate in a manner that is professional and consistent with expectations for members of the business professions",
+            "achievement": "NonProficient"
+          }
+        ]
+      }
+    ]
+  }
+}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO `record_of_performances` (`created_at`, `extracted_at`, `organization_name`, `product_name`, `rop_id`, `rop_json`, `service_provider_name`, `updated_at`) VALUES ('2015-08-17 00:08:59', '2015-08-17 00:08:59', 'IMS Learning Institute, LLC', 'Elan/LuMoS', 'http://rails.kinexis.com:4000/14f7dd00-26a2-0133-70d4-20c9d07c6451', '{\"@context\":{\"@vocab\":\"http://purl.kinexis.com:8888/ctx/cbe/v1/record_of_performance/\"},\"@id\":\"http://rails.kinexis.com:4000/14f7dd00-26a2-0133-70d4-20c9d07c6451\",\"@type\":\"RecordOfPerformance\",\"created_at\":\"2015-08-16T19:08:59-05:00\",\"tool_consumer_profile\":{\"@id\":\"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/\",\"lti_version\":\"LTI-2p0\",\"product_name\":\"Elan/LuMoS\",\"service_provider_name\":\"Elan University\"},\"user\":{\"@id\":\"http://rails.kinexis.com:4000/users/23\",\"familyName\":\"Arne\",\"givenName\":\"Tom\",\"email\":\"tarne@hotmail.com\",\"sourced_id\":0},\"organization\":{\"@id\":\"http://rails.kinexis.com:4000/organizations/11\",\"legal_name\":\"IMS Learning Institute, LLC\",\"website\":\"ili.imsglobal.org\"},\"program\":{\"@id\":\"http://rails.kinexis.com:4000/programs/11\",\"label\":\"Master of Business Admin FP\",\"degree_level\":\"MBA\",\"courses\":[{\"@id\":\"http://rails.kinexis.com:4000/course_sections/101\",\"label\":\"MBA-FP6004-1\",\"title\":\"MBA-FP 6004 Section 1\",\"competencies\":[{\"@id\":\"http://rails.kinexis.com:4000/competencies/191\",\"label\":\"\",\"statement\":\"Examine the use of critical, strategic, and ethical thinking in decision-making\",\"achievement\":\"NonProficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/192\",\"label\":\"mba6004-1\",\"statement\":\"Integrate the Internet, collaboration, and virtual environment strategies into general business management planning and decision-making.\",\"achievement\":\"Distinguished\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/193\",\"label\":\"mba6004-2\",\"statement\":\"Integrate business strategies into general business management planning and decision-making.\",\"achievement\":\"Distinguished\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/194\",\"label\":\"mba6004-3\",\"statement\":\"Analyze relevant global business concerns for the future.\",\"achievement\":\"Distinguished\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/195\",\"label\":\"mba6004-4\",\"statement\":\"Communicate in a manner that is professional and consistent with expectations for members of the business professions.\",\"achievement\":\"NonProficient\"}]},{\"@id\":\"http://rails.kinexis.com:4000/course_sections/103\",\"label\":\"MBA-FP6006-1\",\"title\":\"MBA-FP 6006 Section 1\",\"competencies\":[{\"@id\":\"http://rails.kinexis.com:4000/competencies/196\",\"label\":\"mba6006-1\",\"statement\":\"Analyze contemporary leadership models and practices from the perspective of innovation in a global environment.\",\"achievement\":\"Proficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/197\",\"label\":\"mba6006-2\",\"statement\":\"Assess the behaviors that drive innovation and how leaders can use those behaviors to create innovative organizations.\",\"achievement\":\"Distinguished\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/198\",\"label\":\"mba6006-3\",\"statement\":\"Assess what leaders of innovation do to shape organizational culture and processes.\",\"achievement\":\"Proficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/199\",\"label\":\"mba6006-4\",\"statement\":\"Communicate in a manner that is professional and consistent with expectations for members of the business professions.\",\"achievement\":\"NonProficient\"}]},{\"@id\":\"http://rails.kinexis.com:4000/course_sections/104\",\"label\":\"MBA-FP6008-1\",\"title\":\"MBA-FP 6008 Section 1\",\"competencies\":[{\"@id\":\"http://rails.kinexis.com:4000/competencies/200\",\"label\":\"mba6008-1\",\"statement\":\"Apply the theories, models, and practices of economic theory to create value for the firm.\",\"achievement\":\"Distinguished\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/201\",\"label\":\"mba6008-2\",\"statement\":\"Assess the impact of ethical and regulatory considerations on economic decisions\",\"achievement\":\"Basic\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/202\",\"label\":\"mba6008-3\",\"statement\":\"Analyze the macroeconomic environment of corporate operations\",\"achievement\":\"Basic\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/203\",\"label\":\"mba6008-4\",\"statement\":\"Analyze the microeconomic environment of corporate operations\",\"achievement\":\"NonProficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/204\",\"label\":\"mba6008-5\",\"statement\":\"Communicate in a manner that is professional and consistent with expectations for members of the business professions.ply collaborative techniques to the virtual environment.\",\"achievement\":\"Proficient\"}]},{\"@id\":\"http://rails.kinexis.com:4000/course_sections/109\",\"label\":\"MBA-FP6008-1\",\"title\":\"MBA-FP 6008 Section 1\",\"competencies\":[{\"@id\":\"http://rails.kinexis.com:4000/competencies/200\",\"label\":\"mba6008-1\",\"statement\":\"Apply the theories, models, and practices of economic theory to create value for the firm.\",\"achievement\":\"Distinguished\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/201\",\"label\":\"mba6008-2\",\"statement\":\"Assess the impact of ethical and regulatory considerations on economic decisions\",\"achievement\":\"NonProficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/202\",\"label\":\"mba6008-3\",\"statement\":\"Analyze the macroeconomic environment of corporate operations\",\"achievement\":\"Proficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/203\",\"label\":\"mba6008-4\",\"statement\":\"Analyze the microeconomic environment of corporate operations\",\"achievement\":\"Basic\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/204\",\"label\":\"mba6008-5\",\"statement\":\"Communicate in a manner that is professional and consistent with expectations for members of the business professions.ply collaborative techniques to the virtual environment.\",\"achievement\":\"NonProficient\"}]},{\"@id\":\"http://rails.kinexis.com:4000/course_sections/110\",\"label\":\"MBA-FP6012-1\",\"title\":\"MBA-FP 6012 Section 1\",\"competencies\":[{\"@id\":\"http://rails.kinexis.com:4000/competencies/205\",\"label\":\"mba6012-1\",\"statement\":\"Apply theories, models, and practices of marketing\",\"achievement\":\"Distinguished\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/206\",\"label\":\"mba6012-2\",\"statement\":\"Integrate fundamental principles and applications of marketing to address business problems.\",\"achievement\":\"Basic\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/207\",\"label\":\"mba6012-3\",\"statement\":\"Develop innovative and sustainable solutions to strategic marketing challenges\",\"achievement\":\"NonProficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/208\",\"label\":\"mba6012-4\",\"statement\":\"Integrate marketing analyses into general business management planning and decision making\",\"achievement\":\"Distinguished\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/209\",\"label\":\"mba6012-5\",\"statement\":\"Communicate in a manner that is professional and consistent with expectations for members of the business professions\",\"achievement\":\"NonProficient\"}]}]}}', 'Elan University', '2015-08-17 00:08:59')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 185ms (Views: 2.4ms | ActiveRecord: 31.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2015-08-16 19:09:19 -0500
+
+ActionController::RoutingError (No route matches [GET] "/users"):
+  actionpack (4.1.12) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.12) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.1.12) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.12) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/gems/actionpack-4.1.12/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/gems/actionpack-4.1.12/lib/action_dispatch/middleware/templates/routes/_route.html.erb (7.3ms)
+  Rendered /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/gems/actionpack-4.1.12/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.8ms)
+  Rendered /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/gems/actionpack-4.1.12/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.4ms)
+  Rendered /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/gems/2.1.0/gems/actionpack-4.1.12/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (68.4ms)
+  [1m[36mLti2Tp::Registry Load (0.3ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+  [1m[36mLti2Tp::Registry Load (0.3ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.5ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+
+
+Started GET "/record_of_performances" for 127.0.0.1 at 2015-08-16 19:16:14 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by RecordOfPerformancesController#index as HTML
+  [1m[35mRecordOfPerformance Load (1.2ms)[0m  SELECT `record_of_performances`.* FROM `record_of_performances`
+  Rendered text template (0.0ms)
+Completed 200 OK in 46ms (Views: 13.0ms | ActiveRecord: 20.5ms)
+
+
+Started GET "/record_of_performances/4" for 127.0.0.1 at 2015-08-16 19:16:18 -0500
+Processing by RecordOfPerformancesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRecordOfPerformance Load (0.3ms)[0m  [1mSELECT  `record_of_performances`.* FROM `record_of_performances`  WHERE `record_of_performances`.`id` = 4 LIMIT 1[0m
+Completed 404 Not Found in 32ms (ActiveRecord: 0.3ms)
+
+ActiveRecord::RecordNotFound - Couldn't find RecordOfPerformance with 'id'=4:
+  activerecord (4.1.12) lib/active_record/relation/finder_methods.rb:320:in `raise_record_not_found_exception!'
+  activerecord (4.1.12) lib/active_record/relation/finder_methods.rb:429:in `find_one'
+  activerecord (4.1.12) lib/active_record/relation/finder_methods.rb:413:in `find_with_ids'
+  activerecord (4.1.12) lib/active_record/relation/finder_methods.rb:68:in `find'
+  activerecord (4.1.12) lib/active_record/querying.rb:3:in `find'
+  app/controllers/record_of_performances_controller.rb:87:in `show'
+  actionpack (4.1.12) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:552:in `block (2 levels) in compile'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:502:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.12) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.12) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  activerecord (4.1.12) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.12) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.12) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.1.12) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.12) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/johntibbetts/.rbenv/versions/2.1.4/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/509568094f6ba044/variables" for 127.0.0.1 at 2015-08-16 19:16:18 -0500
+
+
+Started GET "/record_of_performances" for 127.0.0.1 at 2015-08-16 19:16:28 -0500
+Processing by RecordOfPerformancesController#index as HTML
+  [1m[35mRecordOfPerformance Load (0.2ms)[0m  SELECT `record_of_performances`.* FROM `record_of_performances`
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/record_of_performances/1" for 127.0.0.1 at 2015-08-16 19:16:34 -0500
+Processing by RecordOfPerformancesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecordOfPerformance Load (0.4ms)[0m  [1mSELECT  `record_of_performances`.* FROM `record_of_performances`  WHERE `record_of_performances`.`id` = 1 LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.4ms)
+  [1m[36mLti2Tp::Registry Load (1.6ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`

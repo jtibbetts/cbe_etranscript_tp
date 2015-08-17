@@ -9443,3 +9443,13 @@ Processing by Lti2Tp::RegistrationsController#create as HTML
   Parameters: {"lti_message_type"=>"ToolProxyRegistrationRequest", "lti_version"=>"LTI-2p0", "user_id"=>"2", "roles"=>"urn:lti:sysrole:ims/lis/SysAdmin", "tc_profile_url"=>"http://rails.kinexis.com:4000/cbe_tc/lti2_tc/tool_consumer_profiles/26daf360-2006-0133-b55b-406c8f40a599", "reg_key"=>"26da0850-2006-0133-b55b-406c8f40a599", "reg_password"=>"[FILTERED]", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/cbe_tc/admin/tool_actions", "launch_presentation_document_target"=>"window", "tool_proxy_guid"=>"61d244ce2e1d1cd03bd1f88b2aa087ec"}
   [1m[35mLti2Tp::Tool Load (0.3ms)[0m  SELECT  `lti2_tp_tools`.* FROM `lti2_tp_tools`   ORDER BY `lti2_tp_tools`.`id` ASC LIMIT 1
 Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms)
+  [1m[36mLti2Tp::Registry Load (53.2ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+  [1m[36mActiveRecord::SchemaMigration Load (24.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mSQL (43.8ms)[0m  DELETE FROM `lti2_tp_registrations`
+  [1m[36mSQL (29.4ms)[0m  [1mDELETE FROM `lti_registration_wips`[0m
+  [1m[35mSQL (15.2ms)[0m  DELETE FROM `tenants`
+  [1m[36mSQL (26.8ms)[0m  [1mDELETE FROM `iresources`[0m
+  [1m[35mSQL (29.0ms)[0m  DELETE FROM `record_of_performances`
+  [1m[36mLti2Tp::Registry Load (0.3ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
