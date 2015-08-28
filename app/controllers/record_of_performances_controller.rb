@@ -18,9 +18,6 @@ class RecordOfPerformancesController < ApplicationController
   #
   # show full detail of rop (note SINGULAR record_of_performance)
   # curl http://localhost:5000/record_of_performance/2
-  #
-
-
 
   def create
     pre_process_tenant
