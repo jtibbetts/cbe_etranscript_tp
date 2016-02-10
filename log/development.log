@@ -5045,3 +5045,124 @@ Processing by RecordOfPerformancesController#show as HTML
 Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
   [1m[36mLti2Tp::Registry Load (12.1ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
   [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+  [1m[36mLti2Tp::Registry Load (0.4ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.3ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+  [1m[36mLti2Tp::Registry Load (0.7ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+  [1m[36mLti2Tp::Registry Load (0.4ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+
+
+Started POST "/lti2_tp/reregistrations" for 127.0.0.1 at 2015-10-08 08:46:02 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Lti2Tp::RegistrationsController#reregister as HTML
+  Parameters: {"tc_profile_url"=>"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/3334dd20-5000-0133-8971-20c9d07c6451", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/admin/tool_actions", "lti_message_type"=>"ToolProxyReregistrationRequest", "oauth_consumer_key"=>"3333d760-5000-0133-8971-20c9d07c6451", "oauth_nonce"=>"2798794937352", "oauth_signature_method"=>"HMAC-SHA1", "oauth_timestamp"=>"1444319162", "oauth_version"=>"1.0", "oauth_callback"=>"about:blank", "oauth_signature"=>"3DBQImZZEX0/0GhjsLfkeA5PUuo="}
+Can't verify CSRF token authenticity
+AuthHdr_Parms: {}
+  [1m[35mTenant Load (0.6ms)[0m  SELECT  `tenants`.* FROM `tenants`  WHERE `tenants`.`tenant_key` = '3333d760-5000-0133-8971-20c9d07c6451'  ORDER BY `tenants`.`id` ASC LIMIT 1
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 23.8ms)
+
+NoMethodError - undefined method `id' for nil:NilClass:
+  app/controllers/application_controller.rb:34:in `pre_process_tenant'
+  /Users/johntibbetts/git/LTI2-Reference/lti2_tp/app/controllers/lti2_tp/registrations_controller.rb:98:in `reregister'
+  actionpack (4.1.12) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:552:in `block (2 levels) in compile'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:502:in `call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.12) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.12) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.12) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.12) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.12) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.12) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.12) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.12) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.12) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.12) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/railtie.rb:194:in `method_missing'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.12) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.12) lib/action_dispatch/routing/route_set.rb:692:in `call'
+  rack (1.5.5) lib/rack/etag.rb:23:in `call'
+  rack (1.5.5) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.5) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.5) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/cookies.rb:562:in `call'
+  activerecord (4.1.12) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.12) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.12) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.12) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.12) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.12) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.12) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.12) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.1.12) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.12) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.12) lib/action_dispatch/middleware/static.rb:84:in `call'
+  rack (1.5.5) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.12) lib/rails/engine.rb:514:in `call'
+  railties (4.1.12) lib/rails/application.rb:144:in `call'
+  rack (1.5.5) lib/rack/lock.rb:17:in `call'
+  rack (1.5.5) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.5) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /Users/johntibbetts/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /Users/johntibbetts/.rbenv/versions/2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+
+Started POST "/lti2_tp/__better_errors/df51a9fa43b4faf6/variables" for 127.0.0.1 at 2015-10-08 08:46:03 -0700
+
+
+Started POST "/lti2_tp/__better_errors/df51a9fa43b4faf6/eval" for 127.0.0.1 at 2015-10-08 08:46:15 -0700
+
+
+Started POST "/lti2_tp/__better_errors/df51a9fa43b4faf6/eval" for 127.0.0.1 at 2015-10-08 08:46:19 -0700
+
+
+Started POST "/lti2_tp/__better_errors/df51a9fa43b4faf6/eval" for 127.0.0.1 at 2015-10-08 08:48:06 -0700
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT  `tenants`.* FROM `tenants`  WHERE `tenants`.`tenant_key` = '3333d760-5000-0133-8971-20c9d07c6451'  ORDER BY `tenants`.`id` ASC LIMIT 1[0m
+
+
+Started POST "/lti2_tp/__better_errors/df51a9fa43b4faf6/eval" for 127.0.0.1 at 2015-10-08 08:48:20 -0700
+  [1m[35mTenant Load (0.4ms)[0m  SELECT `tenants`.* FROM `tenants`  WHERE `tenants`.`tenant_key` = '3333d760-5000-0133-8971-20c9d07c6451'
+
+
+Started POST "/lti2_tp/__better_errors/df51a9fa43b4faf6/eval" for 127.0.0.1 at 2015-10-08 08:48:25 -0700
+  [1m[36mTenant Load (0.4ms)[0m  [1mSELECT `tenants`.* FROM `tenants`[0m
+
+
+Started POST "/lti2_tp/__better_errors/df51a9fa43b4faf6/eval" for 127.0.0.1 at 2015-10-08 08:49:55 -0700
+  [1m[35m (23.3ms)[0m  SELECT DATABASE() as db

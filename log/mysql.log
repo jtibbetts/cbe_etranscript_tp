@@ -10505,3 +10505,371 @@ RecordOfPerformance as received:
 Completed 200 OK in 39ms (Views: 0.5ms | ActiveRecord: 32.8ms)
   [1m[36mLti2Tp::Registry Load (39.8ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
   [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+  [1m[36mLti2Tp::Registry Load (0.4ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+Started POST "/lti2_tp/registrations" for 127.0.0.1 at 2015-09-14 18:02:50 -0700
+Processing by Lti2Tp::RegistrationsController#create as HTML
+  Parameters: {"lti_message_type"=>"ToolProxyRegistrationRequest", "lti_version"=>"LTI-2p0", "user_id"=>"2", "roles"=>"urn:lti:sysrole:ims/lis/SysAdmin", "tc_profile_url"=>"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/65c69310-3d73-0133-d67f-20c9d07c6451", "reg_key"=>"65c69120-3d73-0133-d67f-20c9d07c6451", "reg_password"=>"[FILTERED]", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/admin/tool_actions", "launch_presentation_document_target"=>"window", "tool_proxy_guid"=>"8bb52e4c24488ddf8e4be50fb76bd8b3"}
+  [1m[36mLti2Tp::Tool Load (0.5ms)[0m  [1mSELECT  `lti2_tp_tools`.* FROM `lti2_tp_tools`   ORDER BY `lti2_tp_tools`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (9.1ms)[0m  [1mINSERT INTO `lti2_tp_registrations` (`created_at`, `launch_presentation_return_url`, `lti_version`, `message_type`, `reg_key`, `reg_password`, `status`, `tc_profile_url`, `tenant_basename`, `tenant_name`, `tool_consumer_profile_json`, `tool_id`, `tool_profile_json`, `tool_proxy_guid`, `updated_at`, `user_id`) VALUES ('2015-09-15 01:02:50', 'http://rails.kinexis.com:4000/admin/tool_actions', 'LTI-2p0', 'registration', '65c69120-3d73-0133-d67f-20c9d07c6451', 'fb8e6fcb00810e972b38f37ac92dee43', 'received', 'http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/65c69310-3d73-0133-d67f-20c9d07c6451', 'Elan University', 'Elan University', '{\"@context\":[\"http://purl.imsglobal.org/ctx/lti/v2/ToolConsumerProfile\",{\"ltitcp\":\"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/65c69310-3d73-0133-d67f-20c9d07c6451#\"}],\"@type\":\"ToolConsumerProfile\",\"@id\":\"http://rails.kinexis.com:4000/tool_consumer_profiles/65c69310-3d73-0133-d67f-20c9d07c6451\",\"lti_version\":\"LTI-2p0\",\"guid\":\"65c69310-3d73-0133-d67f-20c9d07c6451\",\"product_instance\":{\"guid\":\"dcddf9808107-81ea-eaa4-1edf-5d24568c\",\"product_info\":{\"product_name\":{\"default_value\":\"Elan/LuMoS\",\"key\":\"product.name\"},\"product_version\":\"3.1\",\"description\":{\"default_value\":\"Elan University/LuMoS Learning Platform\",\"key\":\"product.version\"},\"technical_description\":{\"default_value\":\"LTI 1, 1.1 and 2.0 compliant\",\"key\":\"product.technicalDescription\"},\"product_family\":{\"code\":\"LuMoS\",\"vendor\":{\"code\":\"lms.LuMoS.org\",\"vendor_name\":{\"default_value\":\"LuMoS Corporation\",\"key\":\"product.vendor.name\"},\"description\":{\"default_value\":\"LuMoS Corporation is a fictitious vendor of a Learning Management System\",\"key\":\"product.vendor.description\"},\"website\":\"http://lms.LuMoS.org/products/omega\",\"timestamp\":\"2012-07-09T012:08:16-04:00\",\"contact\":{\"email\":\"support@lms.LuMoS.org\"}}}},\"support\":{\"email\":\"john.tibbetts@kinexis.com\"},\"service_owner\":{\"@id\":\"http://ec2.LuMoS.org/ServiceOwner\",\"timestamp\":\"2012-03-28T09:08:16-04:00\",\"service_owner_name\":{\"default_value\":\"Elan University\",\"key\":\"service_owner.name\"},\"description\":{\"default_value\":\"Elan University EC2 Cloud\",\"key\":\"service_owner.description\"},\"support\":{\"email\":\"techsupport@elan.edu\"}},\"service_provider\":{\"@id\":\"http://ec2.LuMoS.org/ServiceProvider\",\"guid\":\"ec2.LuMoS.org\",\"timestamp\":\"2012-07-09T012:08:16-04:00\",\"service_provider_name\":{\"default_value\":\"Elan University\",\"key\":\"service_provider.name\"},\"description\":{\"default_value\":\"Elan University EC2 Cloud\",\"key\":\"service_provider.description\"},\"support\":{\"email\":\"support@yasp.LuMoS.org\"}}},\"capability_offered\":[\"basic-lti-launch-request\",\"Result.autocreate\",\"Result.sourcedId\",\"Result.uri\",\"User.id\",\"User.username\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"CourseSection.sourcedId\",\"CourseOffering.label\",\"Person.sourcedId\",\"Person.email.primary\",\"Person.name.given\",\"Person.name.family\",\"Person.name.full\",\"Membership.role\",\"ToolProxy.custom.url\",\"ToolProxyBinding.custom.url\",\"LtiLink.custom.url\",\"ToolConsumerProfile.url\"],\"service_offered\":[{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxy.collection\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tools\",\"format\":[\"application/vnd.ims.lti.v2.toolproxy+json\"],\"action\":[\"POST\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxy.item\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tools/{tool_proxy_guid}\",\"format\":[\"application/vnd.ims.lti.v2.toolproxy+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:Result.item\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/resources/Result/{sourcedId}\",\"format\":[\"application/vnd.ims.lis.v2.result+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:LtiLinkSettings\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tool_settings/{tool_proxy_guid}/ltilink/{link_id}\",\"format\":[\"application/vnd.ims.lti.v2.toolsettings+json\",\"application/vnd.ims.lti.v2.toolsettings.simple+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxyBindingSettings\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tool_settings/{tool_proxy_guid}/context/{context_id}\",\"format\":[\"application/vnd.ims.lti.v2.toolsettings+json\",\"application/vnd.ims.lti.v2.toolsettings.simple+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxySettings\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tool_settings/{tool_proxy_guid}\",\"format\":[\"application/vnd.ims.lti.v2.toolsettings+json\",\"application/vnd.ims.lti.v2.toolsettings.simple+json\"],\"action\":[\"GET\",\"PUT\"]}]}', 2, '{\"base_url_choice\":[{\"default_base_url\":\"http://rails.kinexis.com:5000\",\"selector\":{\"applies_to\":[\"IconEndpoint\",\"MessageHandler\"]}}],\"lti_version\":\"LTI-2p0\",\"message\":[{\"message_type\":[\"ToolProxyRegistrationRequest\",\"ToolProxyReregistrationRequest\"],\"parameter\":[{\"name\":\"tc_profile_url\",\"variable\":\"ToolConsumerProfile.url\"}],\"path\":\"http://rails.kinexis.com:5000/lti2_tp/reregistrations\"}],\"product_instance\":{\"guid\":\"fd75124a-140e-470f-944c-114d2d92bb40\",\"product_info\":{\"description\":{\"default_value\":\"Fabericious reflowable ePub3 Textbook\",\"key\":\"tool.description\"},\"product_family\":{\"code\":\"assessment-tool\",\"vendor\":{\"code\":\"fabericious.org\",\"contact\":{\"email\":\"info@fabericious.com\"},\"description\":{\"default_value\":\"Fabericious is a leading provider of interactive tools for education\",\"key\":\"tool.vendor.description\"},\"timestamp\":\"2012-04-05T09:08:16-04:00\",\"vendor_name\":{\"default_value\":\"Fab\",\"key\":\"tool.vendor.name\"},\"website\":\"{http://rails.kinexis.com:5000}\"}},\"product_name\":{\"default_value\":\"LTI2 BookTools\",\"key\":\"tool.name\"},\"product_version\":\"10.3\",\"technical_description\":{\"default_value\":\"Support provided for all LTI 1 extensions as well as LTI 2\",\"key\":\"tool.technical\"}},\"service_provider\":{\"description\":{\"default_value\":\"Provider of high performance managed hosting environments\",\"key\":\"service_provider.description\"},\"guid\":\"18e7ea50-3d6d-4f6b-aff2-ed3ab577716c\",\"service_provider_name\":{\"default_value\":\"Amazon Cloud\",\"key\":\"service_provider.name\"},\"support\":{\"email\":\"support@ec2.fabericious.com\"},\"timestamp\":\"2012-04-05T09:08:16-04:00\"},\"support\":{\"email\":\"helpdesk@fabericious.com\"}},\"resource_handler\":[{\"description\":{\"default_value\":\"Settings service\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"ToolProxy.custom.url\",\"ToolProxyBinding.custom.url\",\"LtiLink.custom.url\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"name\":\"tool_proxy_custom_url\",\"variable\":\"ToolProxy.custom.url\"},{\"name\":\"tool_proxy_binding_custom_url\",\"variable\":\"ToolProxyBinding.custom.url\"},{\"name\":\"lti_link_custom_url\",\"variable\":\"LtiLink.custom.url\"}],\"path\":\"/settings\"}],\"resource_name\":{\"default_value\":\"Settings\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"setting\"}},{\"description\":{\"default_value\":\"Echo service\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"fixed\":\"Narcissus\",\"name\":\"referrer\"},{\"fixed\":\"3.14159\",\"name\":\"pi\"},{\"name\":\"user_primary_email\",\"variable\":\"Person.email.primary\"},{\"name\":\"discipline\",\"variable\":\"CourseSection.label\"}],\"path\":\"/echoes\"}],\"resource_name\":{\"default_value\":\"Echo\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"echo\"}},{\"description\":{\"default_value\":\"Record of Performance Launch\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"fixed\":\"http://rails.kinexis.com:5000/lti2_tp/users\",\"name\":\"tp_user_service\"}],\"path\":\"/rop_launch\"}],\"resource_name\":{\"default_value\":\"Record of Performance\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"echo\"}},{\"description\":{\"default_value\":\"Interactive resource\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"Result.autocreate\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"name\":\"vbid\"},{\"name\":\"result_uri\",\"variable\":\"Result.uri\"}],\"path\":\"/iresources\"}],\"resource_name\":{\"default_value\":\"InteractiveResource\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"iresource\"}}],\"service_offered\":[{\"@id\":\"http://rails.kinexis.com:5000/RecordOfPerformance.collection\",\"@type\":\"RestService\",\"action\":[\"POST\"],\"endpoint\":\"http://rails.kinexis.com:5000/record_of_performances\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance+json\"},{\"@id\":\"http://rails.kinexis.com:5000/RecordOfPerformance.collection\",\"@type\":\"RestService\",\"action\":[\"GET\"],\"endpoint\":\"http://rails.kinexis.com:5000/record_of_performances\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance.id+json\"},{\"@id\":\"http://rails.kinexis.com:5000/RecordOfPerformance.item\",\"@type\":\"RestService\",\"action\":[\"GET\"],\"endpoint\":\"http://rails.kinexis.com:5000/record_of_performances/{rop_id}\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance+json\"}]}', '8bb52e4c24488ddf8e4be50fb76bd8b3', '2015-09-15 01:02:50', '2')[0m
+  [1m[35m (12.4ms)[0m  COMMIT
+Redirected to http://localhost:5000/lti_registration_wips?registration_id=46&return_url=/lti2_tp/registrations
+Completed 302 Found in 142ms (ActiveRecord: 48.4ms)
+Started GET "/lti_registration_wips?registration_id=46&return_url=/lti2_tp/registrations" for 127.0.0.1 at 2015-09-14 18:02:50 -0700
+Processing by LtiRegistrationWipsController#index as HTML
+  Parameters: {"registration_id"=>"46", "return_url"=>"/lti2_tp/registrations"}
+  [1m[36mLti2Tp::Registration Load (0.5ms)[0m  [1mSELECT  `lti2_tp_registrations`.* FROM `lti2_tp_registrations`  WHERE `lti2_tp_registrations`.`id` = 46 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `lti_registration_wips` (`created_at`, `product_name`, `registration_id`, `registration_return_url`, `support_email`, `tenant_name`, `updated_at`) VALUES ('2015-09-15 01:02:50', 'Elan/LuMoS', 46, '/lti2_tp/registrations', 'john.tibbetts@kinexis.com', 'Elan University-0602.50', '2015-09-15 01:02:50')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  Rendered lti_registration_wips/_form.html.haml (127.3ms)
+  Rendered lti_registration_wips/index.html.haml within layouts/application (139.7ms)
+Completed 200 OK in 305ms (Views: 270.1ms | ActiveRecord: 22.3ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-09-14 18:02:51 -0700
+Started GET "/assets/formtastic.css" for 127.0.0.1 at 2015-09-14 18:02:51 -0700
+Started GET "/assets/my_formtastic_changes.css" for 127.0.0.1 at 2015-09-14 18:02:51 -0700
+  [1m[36mLti2Tp::Registry Load (0.4ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+Started POST "/lti2_tp/registrations" for 127.0.0.1 at 2015-09-14 18:56:42 -0700
+Processing by Lti2Tp::RegistrationsController#create as HTML
+  Parameters: {"lti_message_type"=>"ToolProxyRegistrationRequest", "lti_version"=>"LTI-2p0", "user_id"=>"2", "roles"=>"urn:lti:sysrole:ims/lis/SysAdmin", "tc_profile_url"=>"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/ec7c0630-3d7a-0133-d680-20c9d07c6451", "reg_key"=>"ec7c00c0-3d7a-0133-d680-20c9d07c6451", "reg_password"=>"[FILTERED]", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/admin/tool_actions", "launch_presentation_document_target"=>"window", "tool_proxy_guid"=>"c939a4b00992a0fa33d89cee1a28a513"}
+  [1m[36mLti2Tp::Tool Load (0.8ms)[0m  [1mSELECT  `lti2_tp_tools`.* FROM `lti2_tp_tools`   ORDER BY `lti2_tp_tools`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (6.8ms)[0m  [1mINSERT INTO `lti2_tp_registrations` (`created_at`, `launch_presentation_return_url`, `lti_version`, `message_type`, `reg_key`, `reg_password`, `status`, `tc_profile_url`, `tenant_basename`, `tenant_name`, `tool_consumer_profile_json`, `tool_id`, `tool_profile_json`, `tool_proxy_guid`, `updated_at`, `user_id`) VALUES ('2015-09-15 01:56:42', 'http://rails.kinexis.com:4000/admin/tool_actions', 'LTI-2p0', 'registration', 'ec7c00c0-3d7a-0133-d680-20c9d07c6451', '4fdae49350e6088fa1184ad7261b6ef7', 'received', 'http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/ec7c0630-3d7a-0133-d680-20c9d07c6451', 'Elan University', 'Elan University', '{\"@context\":[\"http://purl.imsglobal.org/ctx/lti/v2/ToolConsumerProfile\",{\"ltitcp\":\"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/cdc53830-3d7a-0133-d680-20c9d07c6451#\"}],\"@type\":\"ToolConsumerProfile\",\"@id\":\"http://rails.kinexis.com:4000/tool_consumer_profiles/cdc53830-3d7a-0133-d680-20c9d07c6451\",\"lti_version\":\"LTI-2p0\",\"guid\":\"ec7c0630-3d7a-0133-d680-20c9d07c6451\",\"product_instance\":{\"guid\":\"dcddf9808107-81ea-eaa4-1edf-5d24568c\",\"product_info\":{\"product_name\":{\"default_value\":\"Elan/LuMoS\",\"key\":\"product.name\"},\"product_version\":\"3.1\",\"description\":{\"default_value\":\"Elan University/LuMoS Learning Platform\",\"key\":\"product.version\"},\"technical_description\":{\"default_value\":\"LTI 1, 1.1 and 2.0 compliant\",\"key\":\"product.technicalDescription\"},\"product_family\":{\"code\":\"LuMoS\",\"vendor\":{\"code\":\"lms.LuMoS.org\",\"vendor_name\":{\"default_value\":\"LuMoS Corporation\",\"key\":\"product.vendor.name\"},\"description\":{\"default_value\":\"LuMoS Corporation is a fictitious vendor of a Learning Management System\",\"key\":\"product.vendor.description\"},\"website\":\"http://lms.LuMoS.org/products/omega\",\"timestamp\":\"2012-07-09T012:08:16-04:00\",\"contact\":{\"email\":\"support@lms.LuMoS.org\"}}}},\"support\":{\"email\":\"john.tibbetts@kinexis.com\"},\"service_owner\":{\"@id\":\"http://ec2.LuMoS.org/ServiceOwner\",\"timestamp\":\"2012-03-28T09:08:16-04:00\",\"service_owner_name\":{\"default_value\":\"Elan University\",\"key\":\"service_owner.name\"},\"description\":{\"default_value\":\"Elan University EC2 Cloud\",\"key\":\"service_owner.description\"},\"support\":{\"email\":\"techsupport@elan.edu\"}},\"service_provider\":{\"@id\":\"http://ec2.LuMoS.org/ServiceProvider\",\"guid\":\"ec2.LuMoS.org\",\"timestamp\":\"2012-07-09T012:08:16-04:00\",\"service_provider_name\":{\"default_value\":\"Elan University\",\"key\":\"service_provider.name\"},\"description\":{\"default_value\":\"Elan University EC2 Cloud\",\"key\":\"service_provider.description\"},\"support\":{\"email\":\"support@yasp.LuMoS.org\"}}},\"capability_offered\":[\"basic-lti-launch-request\",\"Result.autocreate\",\"Result.sourcedId\",\"Result.uri\",\"User.id\",\"User.username\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"CourseSection.sourcedId\",\"CourseOffering.label\",\"Person.sourcedId\",\"Person.email.primary\",\"Person.name.given\",\"Person.name.family\",\"Person.name.full\",\"Membership.role\",\"ToolProxy.custom.url\",\"ToolProxyBinding.custom.url\",\"LtiLink.custom.url\",\"ToolConsumerProfile.url\"],\"service_offered\":[{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxy.collection\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tools\",\"format\":[\"application/vnd.ims.lti.v2.toolproxy+json\"],\"action\":[\"POST\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxy.item\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tools/{tool_proxy_guid}\",\"format\":[\"application/vnd.ims.lti.v2.toolproxy+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:Result.item\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/resources/Result/{sourcedId}\",\"format\":[\"application/vnd.ims.lis.v2.result+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:LtiLinkSettings\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tool_settings/{tool_proxy_guid}/ltilink/{link_id}\",\"format\":[\"application/vnd.ims.lti.v2.toolsettings+json\",\"application/vnd.ims.lti.v2.toolsettings.simple+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxyBindingSettings\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tool_settings/{tool_proxy_guid}/context/{context_id}\",\"format\":[\"application/vnd.ims.lti.v2.toolsettings+json\",\"application/vnd.ims.lti.v2.toolsettings.simple+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxySettings\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tool_settings/{tool_proxy_guid}\",\"format\":[\"application/vnd.ims.lti.v2.toolsettings+json\",\"application/vnd.ims.lti.v2.toolsettings.simple+json\"],\"action\":[\"GET\",\"PUT\"]}]}', 2, '{\"base_url_choice\":[{\"default_base_url\":\"http://rails.kinexis.com:5000\",\"selector\":{\"applies_to\":[\"IconEndpoint\",\"MessageHandler\"]}}],\"lti_version\":\"LTI-2p0\",\"message\":[{\"message_type\":[\"ToolProxyRegistrationRequest\",\"ToolProxyReregistrationRequest\"],\"parameter\":[{\"name\":\"tc_profile_url\",\"variable\":\"ToolConsumerProfile.url\"}],\"path\":\"http://rails.kinexis.com:5000/lti2_tp/reregistrations\"}],\"product_instance\":{\"guid\":\"fd75124a-140e-470f-944c-114d2d92bb40\",\"product_info\":{\"description\":{\"default_value\":\"Fabericious reflowable ePub3 Textbook\",\"key\":\"tool.description\"},\"product_family\":{\"code\":\"assessment-tool\",\"vendor\":{\"code\":\"fabericious.org\",\"contact\":{\"email\":\"info@fabericious.com\"},\"description\":{\"default_value\":\"Fabericious is a leading provider of interactive tools for education\",\"key\":\"tool.vendor.description\"},\"timestamp\":\"2012-04-05T09:08:16-04:00\",\"vendor_name\":{\"default_value\":\"Fab\",\"key\":\"tool.vendor.name\"},\"website\":\"{http://rails.kinexis.com:5000}\"}},\"product_name\":{\"default_value\":\"LTI2 BookTools\",\"key\":\"tool.name\"},\"product_version\":\"10.3\",\"technical_description\":{\"default_value\":\"Support provided for all LTI 1 extensions as well as LTI 2\",\"key\":\"tool.technical\"}},\"service_provider\":{\"description\":{\"default_value\":\"Provider of high performance managed hosting environments\",\"key\":\"service_provider.description\"},\"guid\":\"18e7ea50-3d6d-4f6b-aff2-ed3ab577716c\",\"service_provider_name\":{\"default_value\":\"Amazon Cloud\",\"key\":\"service_provider.name\"},\"support\":{\"email\":\"support@ec2.fabericious.com\"},\"timestamp\":\"2012-04-05T09:08:16-04:00\"},\"support\":{\"email\":\"helpdesk@fabericious.com\"}},\"resource_handler\":[{\"description\":{\"default_value\":\"Settings service\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"ToolProxy.custom.url\",\"ToolProxyBinding.custom.url\",\"LtiLink.custom.url\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"name\":\"tool_proxy_custom_url\",\"variable\":\"ToolProxy.custom.url\"},{\"name\":\"tool_proxy_binding_custom_url\",\"variable\":\"ToolProxyBinding.custom.url\"},{\"name\":\"lti_link_custom_url\",\"variable\":\"LtiLink.custom.url\"}],\"path\":\"/settings\"}],\"resource_name\":{\"default_value\":\"Settings\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"setting\"}},{\"description\":{\"default_value\":\"Echo service\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"fixed\":\"Narcissus\",\"name\":\"referrer\"},{\"fixed\":\"3.14159\",\"name\":\"pi\"},{\"name\":\"user_primary_email\",\"variable\":\"Person.email.primary\"},{\"name\":\"discipline\",\"variable\":\"CourseSection.label\"}],\"path\":\"/echoes\"}],\"resource_name\":{\"default_value\":\"Echo\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"echo\"}},{\"description\":{\"default_value\":\"Record of Performance Launch\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"fixed\":\"http://rails.kinexis.com:5000/lti2_tp/users\",\"name\":\"tp_user_service\"}],\"path\":\"/rop_launch\"}],\"resource_name\":{\"default_value\":\"Record of Performance\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"echo\"}},{\"description\":{\"default_value\":\"Interactive resource\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"Result.autocreate\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"name\":\"vbid\"},{\"name\":\"result_uri\",\"variable\":\"Result.uri\"}],\"path\":\"/iresources\"}],\"resource_name\":{\"default_value\":\"InteractiveResource\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"iresource\"}}],\"service_offered\":[{\"@id\":\"http://rails.kinexis.com:5000/RecordOfPerformance.collection\",\"@type\":\"RestService\",\"action\":[\"POST\"],\"endpoint\":\"http://rails.kinexis.com:5000/record_of_performances\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance+json\"},{\"@id\":\"http://rails.kinexis.com:5000/RecordOfPerformance.collection\",\"@type\":\"RestService\",\"action\":[\"GET\"],\"endpoint\":\"http://rails.kinexis.com:5000/record_of_performances\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance.id+json\"},{\"@id\":\"http://rails.kinexis.com:5000/RecordOfPerformance.item\",\"@type\":\"RestService\",\"action\":[\"GET\"],\"endpoint\":\"http://rails.kinexis.com:5000/record_of_performances/{rop_id}\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance+json\"}]}', 'c939a4b00992a0fa33d89cee1a28a513', '2015-09-15 01:56:42', '2')[0m
+  [1m[35m (16.4ms)[0m  COMMIT
+Redirected to http://localhost:5000/lti_registration_wips?registration_id=47&return_url=/lti2_tp/registrations
+Completed 302 Found in 112ms (ActiveRecord: 45.5ms)
+Started GET "/lti_registration_wips?registration_id=47&return_url=/lti2_tp/registrations" for 127.0.0.1 at 2015-09-14 18:56:42 -0700
+Processing by LtiRegistrationWipsController#index as HTML
+  Parameters: {"registration_id"=>"47", "return_url"=>"/lti2_tp/registrations"}
+  [1m[36mLti2Tp::Registration Load (0.4ms)[0m  [1mSELECT  `lti2_tp_registrations`.* FROM `lti2_tp_registrations`  WHERE `lti2_tp_registrations`.`id` = 47 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `lti_registration_wips` (`created_at`, `product_name`, `registration_id`, `registration_return_url`, `support_email`, `tenant_name`, `updated_at`) VALUES ('2015-09-15 01:56:42', 'Elan/LuMoS', 47, '/lti2_tp/registrations', 'john.tibbetts@kinexis.com', 'Elan University-0656.42', '2015-09-15 01:56:42')[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  Rendered lti_registration_wips/_form.html.haml (151.0ms)
+  Rendered lti_registration_wips/index.html.haml within layouts/application (163.0ms)
+Completed 200 OK in 322ms (Views: 284.5ms | ActiveRecord: 21.2ms)
+  [1m[36mLti2Tp::Registry Load (0.3ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+  [1m[36mLti2Tp::Registry Load (0.3ms)[0m  [1mSELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`[0m
+  [1m[35mLti2Tp::Registry Load (0.2ms)[0m  SELECT `lti2_tp_registries`.* FROM `lti2_tp_registries`
+  [1m[36mActiveRecord::SchemaMigration Load (17.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mSQL (28.8ms)[0m  DELETE FROM `lti2_tp_registrations`
+  [1m[36mSQL (10.0ms)[0m  [1mDELETE FROM `lti_registration_wips`[0m
+  [1m[35mSQL (21.0ms)[0m  DELETE FROM `tenants`
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `iresources`[0m
+  [1m[35mSQL (27.6ms)[0m  DELETE FROM `record_of_performances`
+Started POST "/lti2_tp/registrations" for 127.0.0.1 at 2015-10-07 11:46:59 -0700
+Processing by Lti2Tp::RegistrationsController#create as HTML
+  Parameters: {"lti_message_type"=>"ToolProxyRegistrationRequest", "lti_version"=>"LTI-2p0", "user_id"=>"2", "roles"=>"urn:lti:sysrole:ims/lis/SysAdmin", "tc_profile_url"=>"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/b37f4bb0-4f51-0133-896d-20c9d07c6451", "reg_key"=>"b37e15b0-4f51-0133-896d-20c9d07c6451", "reg_password"=>"[FILTERED]", "launch_presentation_return_url"=>"http://rails.kinexis.com:4000/admin/tool_actions", "launch_presentation_document_target"=>"window"}
+  [1m[36mLti2Tp::Tool Load (6.4ms)[0m  [1mSELECT  `lti2_tp_tools`.* FROM `lti2_tp_tools`   ORDER BY `lti2_tp_tools`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `lti2_tp_registrations` (`created_at`, `launch_presentation_return_url`, `lti_version`, `message_type`, `reg_key`, `reg_password`, `status`, `tc_profile_url`, `tenant_basename`, `tenant_name`, `tool_consumer_profile_json`, `tool_id`, `tool_profile_json`, `updated_at`, `user_id`) VALUES ('2015-10-07 18:46:59', 'http://rails.kinexis.com:4000/admin/tool_actions', 'LTI-2p0', 'registration', 'b37e15b0-4f51-0133-896d-20c9d07c6451', '19eff867b4e3ad499ac77b3af3520d77', 'received', 'http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/b37f4bb0-4f51-0133-896d-20c9d07c6451', 'Elan University', 'Elan University', '{\"@context\":[\"http://purl.imsglobal.org/ctx/lti/v2/ToolConsumerProfile\",{\"ltitcp\":\"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/b37f4bb0-4f51-0133-896d-20c9d07c6451#\"}],\"@type\":\"ToolConsumerProfile\",\"@id\":\"http://rails.kinexis.com:4000/tool_consumer_profiles/b37f4bb0-4f51-0133-896d-20c9d07c6451\",\"lti_version\":\"LTI-2p0\",\"guid\":\"b37f4bb0-4f51-0133-896d-20c9d07c6451\",\"product_instance\":{\"guid\":\"dcddf9808107-81ea-eaa4-1edf-5d24568c\",\"product_info\":{\"product_name\":{\"default_value\":\"Elan/LuMoS\",\"key\":\"product.name\"},\"product_version\":\"3.1\",\"description\":{\"default_value\":\"Elan University/LuMoS Learning Platform\",\"key\":\"product.version\"},\"technical_description\":{\"default_value\":\"LTI 1, 1.1 and 2.0 compliant\",\"key\":\"product.technicalDescription\"},\"product_family\":{\"code\":\"LuMoS\",\"vendor\":{\"code\":\"lms.LuMoS.org\",\"vendor_name\":{\"default_value\":\"LuMoS Corporation\",\"key\":\"product.vendor.name\"},\"description\":{\"default_value\":\"LuMoS Corporation is a fictitious vendor of a Learning Management System\",\"key\":\"product.vendor.description\"},\"website\":\"http://lms.LuMoS.org/products/omega\",\"timestamp\":\"2012-07-09T012:08:16-04:00\",\"contact\":{\"email\":\"support@lms.LuMoS.org\"}}}},\"support\":{\"email\":\"john.tibbetts@kinexis.com\"},\"service_owner\":{\"@id\":\"http://ec2.LuMoS.org/ServiceOwner\",\"timestamp\":\"2012-03-28T09:08:16-04:00\",\"service_owner_name\":{\"default_value\":\"Elan University\",\"key\":\"service_owner.name\"},\"description\":{\"default_value\":\"Elan University EC2 Cloud\",\"key\":\"service_owner.description\"},\"support\":{\"email\":\"techsupport@elan.edu\"}},\"service_provider\":{\"@id\":\"http://ec2.LuMoS.org/ServiceProvider\",\"guid\":\"ec2.LuMoS.org\",\"timestamp\":\"2012-07-09T012:08:16-04:00\",\"service_provider_name\":{\"default_value\":\"Elan University\",\"key\":\"service_provider.name\"},\"description\":{\"default_value\":\"Elan University EC2 Cloud\",\"key\":\"service_provider.description\"},\"support\":{\"email\":\"support@yasp.LuMoS.org\"}}},\"capability_offered\":[\"basic-lti-launch-request\",\"Result.autocreate\",\"Result.sourcedId\",\"Result.uri\",\"User.id\",\"User.username\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"CourseSection.sourcedId\",\"CourseOffering.label\",\"Person.sourcedId\",\"Person.email.primary\",\"Person.name.given\",\"Person.name.family\",\"Person.name.full\",\"Membership.role\",\"ToolProxy.custom.url\",\"ToolProxyBinding.custom.url\",\"LtiLink.custom.url\",\"ToolConsumerProfile.url\"],\"service_offered\":[{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxy.collection\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tools\",\"format\":[\"application/vnd.ims.lti.v2.toolproxy+json\"],\"action\":[\"POST\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxy.item\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tools/{tool_proxy_guid}\",\"format\":[\"application/vnd.ims.lti.v2.toolproxy+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:Result.item\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/resources/Result/{sourcedId}\",\"format\":[\"application/vnd.ims.lis.v2.result+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:LtiLinkSettings\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tool_settings/{tool_proxy_guid}/ltilink/{link_id}\",\"format\":[\"application/vnd.ims.lti.v2.toolsettings+json\",\"application/vnd.ims.lti.v2.toolsettings.simple+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxyBindingSettings\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tool_settings/{tool_proxy_guid}/context/{context_id}\",\"format\":[\"application/vnd.ims.lti.v2.toolsettings+json\",\"application/vnd.ims.lti.v2.toolsettings.simple+json\"],\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestService\",\"@id\":\"ltitcp:ToolProxySettings\",\"endpoint\":\"http://rails.kinexis.com:4000/lti2_tc/tool_settings/{tool_proxy_guid}\",\"format\":[\"application/vnd.ims.lti.v2.toolsettings+json\",\"application/vnd.ims.lti.v2.toolsettings.simple+json\"],\"action\":[\"GET\",\"PUT\"]}]}', 2, '{\"base_url_choice\":[{\"default_base_url\":\"http://rails.kinexis.com:4100\",\"selector\":{\"applies_to\":[\"IconEndpoint\",\"MessageHandler\"]}}],\"lti_version\":\"LTI-2p0\",\"message\":[{\"message_type\":[\"ToolProxyRegistrationRequest\",\"ToolProxyReregistrationRequest\"],\"parameter\":[{\"name\":\"tc_profile_url\",\"variable\":\"ToolConsumerProfile.url\"}],\"path\":\"http://rails.kinexis.com:4100/lti2_tp/reregistrations\"}],\"product_instance\":{\"guid\":\"fd75124a-140e-470f-944c-114d2d92bb40\",\"product_info\":{\"description\":{\"default_value\":\"Fabericious reflowable ePub3 Textbook\",\"key\":\"tool.description\"},\"product_family\":{\"code\":\"assessment-tool\",\"vendor\":{\"code\":\"fabericious.org\",\"contact\":{\"email\":\"info@fabericious.com\"},\"description\":{\"default_value\":\"Fabericious is a leading provider of interactive tools for education\",\"key\":\"tool.vendor.description\"},\"timestamp\":\"2012-04-05T09:08:16-04:00\",\"vendor_name\":{\"default_value\":\"Fab\",\"key\":\"tool.vendor.name\"},\"website\":\"{http://rails.kinexis.com:4100}\"}},\"product_name\":{\"default_value\":\"LTI2 BookTools\",\"key\":\"tool.name\"},\"product_version\":\"10.3\",\"technical_description\":{\"default_value\":\"Support provided for all LTI 1 extensions as well as LTI 2\",\"key\":\"tool.technical\"}},\"service_provider\":{\"description\":{\"default_value\":\"Provider of high performance managed hosting environments\",\"key\":\"service_provider.description\"},\"guid\":\"18e7ea50-3d6d-4f6b-aff2-ed3ab577716c\",\"service_provider_name\":{\"default_value\":\"Amazon Cloud\",\"key\":\"service_provider.name\"},\"support\":{\"email\":\"support@ec2.fabericious.com\"},\"timestamp\":\"2012-04-05T09:08:16-04:00\"},\"support\":{\"email\":\"helpdesk@fabericious.com\"}},\"resource_handler\":[{\"description\":{\"default_value\":\"Settings service\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"ToolProxy.custom.url\",\"ToolProxyBinding.custom.url\",\"LtiLink.custom.url\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"name\":\"tool_proxy_custom_url\",\"variable\":\"ToolProxy.custom.url\"},{\"name\":\"tool_proxy_binding_custom_url\",\"variable\":\"ToolProxyBinding.custom.url\"},{\"name\":\"lti_link_custom_url\",\"variable\":\"LtiLink.custom.url\"}],\"path\":\"/settings\"}],\"resource_name\":{\"default_value\":\"Settings\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"setting\"}},{\"description\":{\"default_value\":\"Echo service\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"fixed\":\"Narcissus\",\"name\":\"referrer\"},{\"fixed\":\"3.14159\",\"name\":\"pi\"},{\"name\":\"user_primary_email\",\"variable\":\"Person.email.primary\"},{\"name\":\"discipline\",\"variable\":\"CourseSection.label\"}],\"path\":\"/echoes\"}],\"resource_name\":{\"default_value\":\"Echo\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"echo\"}},{\"description\":{\"default_value\":\"Record of Performance Launch\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"fixed\":\"http://rails.kinexis.com:4100/lti2_tp/users\",\"name\":\"tp_user_service\"}],\"path\":\"/rop_launch\"}],\"resource_name\":{\"default_value\":\"Record of Performance\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"echo\"}},{\"description\":{\"default_value\":\"Interactive resource\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"Result.autocreate\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"name\":\"vbid\"},{\"name\":\"result_uri\",\"variable\":\"Result.uri\"}],\"path\":\"/iresources\"}],\"resource_name\":{\"default_value\":\"InteractiveResource\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"iresource\"}}],\"service_offered\":[{\"@id\":\"http://rails.kinexis.com:4100/RecordOfPerformance.collection\",\"@type\":\"RestService\",\"action\":[\"POST\"],\"endpoint\":\"http://rails.kinexis.com:4100/record_of_performances\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance+json\"},{\"@id\":\"http://rails.kinexis.com:4100/RecordOfPerformance.collection\",\"@type\":\"RestService\",\"action\":[\"GET\"],\"endpoint\":\"http://rails.kinexis.com:4100/record_of_performances\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance.id+json\"},{\"@id\":\"http://rails.kinexis.com:4100/RecordOfPerformance.item\",\"@type\":\"RestService\",\"action\":[\"GET\"],\"endpoint\":\"http://rails.kinexis.com:4100/record_of_performances/{rop_id}\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance+json\"}]}', '2015-10-07 18:46:59', '2')[0m
+  [1m[35m (6.2ms)[0m  COMMIT
+Redirected to http://localhost:4100/lti_registration_wips?registration_id=48&return_url=/lti2_tp/registrations
+Completed 302 Found in 132ms (ActiveRecord: 33.9ms)
+Started GET "/lti_registration_wips?registration_id=48&return_url=/lti2_tp/registrations" for 127.0.0.1 at 2015-10-07 11:46:59 -0700
+Processing by LtiRegistrationWipsController#index as HTML
+  Parameters: {"registration_id"=>"48", "return_url"=>"/lti2_tp/registrations"}
+  [1m[36mLti2Tp::Registration Load (0.4ms)[0m  [1mSELECT  `lti2_tp_registrations`.* FROM `lti2_tp_registrations`  WHERE `lti2_tp_registrations`.`id` = 48 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `lti_registration_wips` (`created_at`, `product_name`, `registration_id`, `registration_return_url`, `support_email`, `tenant_name`, `updated_at`) VALUES ('2015-10-07 18:46:59', 'Elan/LuMoS', 48, '/lti2_tp/registrations', 'john.tibbetts@kinexis.com', 'Elan University-1146.59', '2015-10-07 18:46:59')[0m
+  [1m[35m (0.7ms)[0m  COMMIT
+  Rendered lti_registration_wips/_form.html.haml (123.5ms)
+  Rendered lti_registration_wips/index.html.haml within layouts/application (133.0ms)
+Completed 200 OK in 329ms (Views: 292.2ms | ActiveRecord: 21.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-10-07 11:47:00 -0700
+Started GET "/assets/formtastic.css" for 127.0.0.1 at 2015-10-07 11:47:00 -0700
+Started GET "/assets/my_formtastic_changes.css" for 127.0.0.1 at 2015-10-07 11:47:00 -0700
+Started PATCH "/lti_registration_wips/49" for 127.0.0.1 at 2015-10-07 11:47:03 -0700
+Processing by LtiRegistrationWipsController#update as HTML
+  Parameters: {"utf8"=>"✓", "lti_registration_wip"=>{"support_email"=>"john.tibbetts@kinexis.com", "product_name"=>"Elan/LuMoS", "tenant_name"=>"Elan University-1146.59"}, "commit"=>"Update Lti registration wip", "id"=>"49"}
+  [1m[36mLtiRegistrationWip Load (0.3ms)[0m  [1mSELECT  `lti_registration_wips`.* FROM `lti_registration_wips`  WHERE `lti_registration_wips`.`id` = 49 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mLti2Tp::Registration Load (0.3ms)[0m  SELECT  `lti2_tp_registrations`.* FROM `lti2_tp_registrations`  WHERE `lti2_tp_registrations`.`id` = 48 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `lti2_tp_registrations` SET `tenant_name` = 'Elan University-1146.59', `updated_at` = '2015-10-07 18:47:03' WHERE `lti2_tp_registrations`.`id` = 48
+  [1m[36m (12.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mLtiRegistrationWip Load (0.4ms)[0m  SELECT  `lti_registration_wips`.* FROM `lti_registration_wips`  WHERE `lti_registration_wips`.`id` = 49 LIMIT 1
+  [1m[36mLti2Tp::Registration Load (0.3ms)[0m  [1mSELECT  `lti2_tp_registrations`.* FROM `lti2_tp_registrations`  WHERE `lti2_tp_registrations`.`id` = 48 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTenant Exists (23.8ms)[0m  [1mSELECT  1 AS one FROM `tenants`  WHERE `tenants`.`tenant_name` = BINARY 'Elan University-1146.59' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `tenants` (`created_at`, `tenant_name`, `updated_at`) VALUES ('2015-10-07 18:47:03', 'Elan University-1146.59', '2015-10-07 18:47:03')
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE `lti2_tp_registrations` SET `end_registration_id` = 'b9572860-4f51-0133-896e-20c9d07c6451', `tool_proxy_json` = '{\"@context\":\"http://purl.imsglobal.org/ctx/lti/v2/ToolProxy\",\"@type\":\"ToolProxy\",\"tool_proxy_guid\":\"b37e15b0-4f51-0133-896d-20c9d07c6451\",\"lti_version\":\"LTI-2p0\",\"tool_consumer_profile\":\"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/b37f4bb0-4f51-0133-896d-20c9d07c6451\",\"tool_profile\":{\"base_url_choice\":[{\"default_base_url\":\"http://rails.kinexis.com:4100\",\"selector\":{\"applies_to\":[\"IconEndpoint\",\"MessageHandler\"]}}],\"lti_version\":\"LTI-2p0\",\"message\":[{\"message_type\":[\"ToolProxyRegistrationRequest\",\"ToolProxyReregistrationRequest\"],\"parameter\":[{\"name\":\"tc_profile_url\",\"variable\":\"ToolConsumerProfile.url\"}],\"path\":\"http://rails.kinexis.com:4100/lti2_tp/reregistrations\"}],\"product_instance\":{\"guid\":\"fd75124a-140e-470f-944c-114d2d92bb40\",\"product_info\":{\"description\":{\"default_value\":\"Fabericious reflowable ePub3 Textbook\",\"key\":\"tool.description\"},\"product_family\":{\"code\":\"assessment-tool\",\"vendor\":{\"code\":\"fabericious.org\",\"contact\":{\"email\":\"info@fabericious.com\"},\"description\":{\"default_value\":\"Fabericious is a leading provider of interactive tools for education\",\"key\":\"tool.vendor.description\"},\"timestamp\":\"2012-04-05T09:08:16-04:00\",\"vendor_name\":{\"default_value\":\"Fab\",\"key\":\"tool.vendor.name\"},\"website\":\"{http://rails.kinexis.com:4100}\"}},\"product_name\":{\"default_value\":\"LTI2 BookTools\",\"key\":\"tool.name\"},\"product_version\":\"10.3\",\"technical_description\":{\"default_value\":\"Support provided for all LTI 1 extensions as well as LTI 2\",\"key\":\"tool.technical\"}},\"service_provider\":{\"description\":{\"default_value\":\"Provider of high performance managed hosting environments\",\"key\":\"service_provider.description\"},\"guid\":\"18e7ea50-3d6d-4f6b-aff2-ed3ab577716c\",\"service_provider_name\":{\"default_value\":\"Amazon Cloud\",\"key\":\"service_provider.name\"},\"support\":{\"email\":\"support@ec2.fabericious.com\"},\"timestamp\":\"2012-04-05T09:08:16-04:00\"},\"support\":{\"email\":\"helpdesk@fabericious.com\"}},\"resource_handler\":[{\"description\":{\"default_value\":\"Settings service\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"ToolProxy.custom.url\",\"ToolProxyBinding.custom.url\",\"LtiLink.custom.url\",\"ToolProxy.custom.url\",\"ToolProxyBinding.custom.url\",\"LtiLink.custom.url\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"name\":\"tool_proxy_custom_url\",\"variable\":\"ToolProxy.custom.url\"},{\"name\":\"tool_proxy_binding_custom_url\",\"variable\":\"ToolProxyBinding.custom.url\"},{\"name\":\"lti_link_custom_url\",\"variable\":\"LtiLink.custom.url\"}],\"path\":\"/settings\"}],\"resource_name\":{\"default_value\":\"Settings\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"setting\"}},{\"description\":{\"default_value\":\"Echo service\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"Person.email.primary\",\"CourseSection.label\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"fixed\":\"Narcissus\",\"name\":\"referrer\"},{\"fixed\":\"3.14159\",\"name\":\"pi\"},{\"name\":\"user_primary_email\",\"variable\":\"Person.email.primary\"},{\"name\":\"discipline\",\"variable\":\"CourseSection.label\"}],\"path\":\"/echoes\"}],\"resource_name\":{\"default_value\":\"Echo\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"echo\"}},{\"description\":{\"default_value\":\"Record of Performance Launch\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"fixed\":\"http://rails.kinexis.com:4100/lti2_tp/users\",\"name\":\"tp_user_service\"}],\"path\":\"/rop_launch\"}],\"resource_name\":{\"default_value\":\"Record of Performance\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"echo\"}},{\"description\":{\"default_value\":\"Interactive resource\",\"key\":\"resource.description\"},\"message\":[{\"enabled_capability\":[\"User.id\",\"Context.id\",\"CourseSection.label\",\"CourseSection.title\",\"Person.name.family\",\"Person.name.given\",\"Person.email.primary\",\"Result.autocreate\",\"Result.uri\"],\"message_type\":\"basic-lti-launch-request\",\"parameter\":[{\"name\":\"vbid\"},{\"name\":\"result_uri\",\"variable\":\"Result.uri\"}],\"path\":\"/iresources\"}],\"resource_name\":{\"default_value\":\"InteractiveResource\",\"key\":\"resource.name\"},\"resource_type\":{\"code\":\"iresource\"}}],\"service_offered\":[{\"@id\":\"http://rails.kinexis.com:4100/RecordOfPerformance.collection\",\"@type\":\"RestService\",\"action\":[\"POST\"],\"endpoint\":\"http://rails.kinexis.com:4100/record_of_performances\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance+json\"},{\"@id\":\"http://rails.kinexis.com:4100/RecordOfPerformance.collection\",\"@type\":\"RestService\",\"action\":[\"GET\"],\"endpoint\":\"http://rails.kinexis.com:4100/record_of_performances\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance.id+json\"},{\"@id\":\"http://rails.kinexis.com:4100/RecordOfPerformance.item\",\"@type\":\"RestService\",\"action\":[\"GET\"],\"endpoint\":\"http://rails.kinexis.com:4100/record_of_performances/{rop_id}\",\"format\":\"application/vnd.ims.cbe.v1.record_of_performance+json\"}]},\"security_contract\":{\"shared_secret\":\"f05a1a0913e29d05baefeec2dfab4a9c\",\"tool_service\":[{\"@type\":\"RestServiceProfile\",\"service\":\"ltitcp:ToolProxy.collection\",\"action\":[\"POST\"]},{\"@type\":\"RestServiceProfile\",\"service\":\"ltitcp:ToolProxy.item\",\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestServiceProfile\",\"service\":\"ltitcp:Result.item\",\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestServiceProfile\",\"service\":\"ltitcp:LtiLinkSettings\",\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestServiceProfile\",\"service\":\"ltitcp:ToolProxyBindingSettings\",\"action\":[\"GET\",\"PUT\"]},{\"@type\":\"RestServiceProfile\",\"service\":\"ltitcp:ToolProxySettings\",\"action\":[\"GET\",\"PUT\"]}]}}', `updated_at` = '2015-10-07 18:47:03' WHERE `lti2_tp_registrations`.`id` = 48[0m
+  [1m[35m (12.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `lti2_tp_registrations` SET `status` = 'register', `tool_proxy_response` = '{\"@context\":\"http://purl.imsglobal.org/ctx/lti/v2/ToolProxyId\",\"@type\":\"ToolProxy\",\"@id\":null,\"tool_proxy_guid\":\"b37e15b0-4f51-0133-896d-20c9d07c6451\"}', `updated_at` = '2015-10-07 18:47:03' WHERE `lti2_tp_registrations`.`id` = 48
+  [1m[36m (11.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTenant Exists (6.4ms)[0m  [1mSELECT  1 AS one FROM `tenants`  WHERE (`tenants`.`tenant_name` = BINARY 'Elan University-1146.59' AND `tenants`.`id` != 46) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `tenants` SET `secret` = 'f05a1a0913e29d05baefeec2dfab4a9c', `tenant_key` = 'b37e15b0-4f51-0133-896d-20c9d07c6451', `updated_at` = '2015-10-07 18:47:03' WHERE `tenants`.`id` = 46
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `lti2_tp_registrations` SET `final_secret` = 'f05a1a0913e29d05baefeec2dfab4a9c', `tenant_id` = 46, `updated_at` = '2015-10-07 18:47:03' WHERE `lti2_tp_registrations`.`id` = 48[0m
+  [1m[35m (0.6ms)[0m  COMMIT
+Redirected to http://localhost:4100/lti2_tp/registrations?status=success&tool_guid=b37e15b0-4f51-0133-896d-20c9d07c6451&&id=48
+Completed 302 Found in 310ms (ActiveRecord: 91.6ms)
+Started GET "/lti2_tp/registrations?status=success&tool_guid=b37e15b0-4f51-0133-896d-20c9d07c6451&&id=48" for 127.0.0.1 at 2015-10-07 11:47:03 -0700
+Processing by Lti2Tp::RegistrationsController#index as HTML
+  Parameters: {"status"=>"success", "tool_guid"=>"b37e15b0-4f51-0133-896d-20c9d07c6451", "id"=>"48"}
+  [1m[36mLti2Tp::Registration Load (0.3ms)[0m  [1mSELECT  `lti2_tp_registrations`.* FROM `lti2_tp_registrations`  WHERE `lti2_tp_registrations`.`id` = 48 LIMIT 1[0m
+Redirected to http://rails.kinexis.com:4000/admin/tool_actions?status=success&tool_guid=b37e15b0-4f51-0133-896d-20c9d07c6451
+Completed 302 Found in 1ms (ActiveRecord: 0.3ms)
+Started POST "/record_of_performances" for 127.0.0.1 at 2015-10-07 11:47:26 -0700
+Processing by RecordOfPerformancesController#create as HTML
+AuthHdr_Parms: {:oauth_consumer_key=>"b37e15b0-4f51-0133-896d-20c9d07c6451", :oauth_nonce=>"578144272311", :oauth_signature_method=>"HMAC-SHA1", :oauth_timestamp=>"1444243645", :oauth_version=>"1.0", :oauth_callback=>"about:blank", :oauth_body_hash=>"ZjJDNwX8CaNa3IHl/DLmHnzYp4k=", :oauth_signature=>"sP/8rBuLTPo1wV3P8CoYgEznj5c="}
+  [1m[35mTenant Load (0.4ms)[0m  SELECT  `tenants`.* FROM `tenants`  WHERE `tenants`.`tenant_key` = 'b37e15b0-4f51-0133-896d-20c9d07c6451'  ORDER BY `tenants`.`id` ASC LIMIT 1
+  [1m[36mLti2Tp::Registration Load (0.5ms)[0m  [1mSELECT  `lti2_tp_registrations`.* FROM `lti2_tp_registrations`  WHERE `lti2_tp_registrations`.`tenant_id` = 46  ORDER BY `lti2_tp_registrations`.`id` ASC LIMIT 1[0m
+AuthHdr_Parms: {:oauth_consumer_key=>"b37e15b0-4f51-0133-896d-20c9d07c6451", :oauth_nonce=>"578144272311", :oauth_signature_method=>"HMAC-SHA1", :oauth_timestamp=>"1444243645", :oauth_version=>"1.0", :oauth_callback=>"about:blank", :oauth_body_hash=>"ZjJDNwX8CaNa3IHl/DLmHnzYp4k=", :oauth_signature=>"sP/8rBuLTPo1wV3P8CoYgEznj5c="}
+in verify_signature
+RecordOfPerformance as received: 
+{
+  "@context": {
+    "@vocab": "http://purl.kinexis.com:8888/ctx/cbe/v1/record_of_performance/"
+  },
+  "@id": "http://rails.kinexis.com:4000/c6aedd00-4f51-0133-896d-20c9d07c6451",
+  "@type": "RecordOfPerformance",
+  "created_at": "2015-10-07T11:47:25-07:00",
+  "tool_consumer_profile": {
+    "@id": "http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/",
+    "lti_version": "LTI-2p0",
+    "product_name": "Elan/LuMoS",
+    "service_provider_name": "Elan University"
+  },
+  "user": {
+    "@id": "http://rails.kinexis.com:4000/users/6",
+    "familyName": "Arne",
+    "givenName": "Tom",
+    "email": "tarne@hotmail.com",
+    "sourced_id": 0
+  },
+  "organization": {
+    "@id": "http://rails.kinexis.com:4000/organizations/3",
+    "legal_name": "IMS Learning Institute, LLC",
+    "website": "ili.imsglobal.org"
+  },
+  "program": {
+    "@id": "http://rails.kinexis.com:4000/programs/3",
+    "label": "Master of Business Admin FP",
+    "degree_level": "MBA",
+    "courses": [
+      {
+        "@id": "http://rails.kinexis.com:4000/course_sections/21",
+        "label": "MBA-FP6004-1",
+        "title": "MBA-FP 6004 Section 1",
+        "competencies": [
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/39",
+            "label": "",
+            "statement": "Examine the use of critical, strategic, and ethical thinking in decision-making",
+            "achievement": "Basic"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/40",
+            "label": "mba6004-1",
+            "statement": "Integrate the Internet, collaboration, and virtual environment strategies into general business management planning and decision-making.",
+            "achievement": "Distinguished"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/41",
+            "label": "mba6004-2",
+            "statement": "Integrate business strategies into general business management planning and decision-making.",
+            "achievement": "Proficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/42",
+            "label": "mba6004-3",
+            "statement": "Analyze relevant global business concerns for the future.",
+            "achievement": "Proficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/43",
+            "label": "mba6004-4",
+            "statement": "Communicate in a manner that is professional and consistent with expectations for members of the business professions.",
+            "achievement": "Basic"
+          }
+        ]
+      },
+      {
+        "@id": "http://rails.kinexis.com:4000/course_sections/23",
+        "label": "MBA-FP6006-1",
+        "title": "MBA-FP 6006 Section 1",
+        "competencies": [
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/44",
+            "label": "mba6006-1",
+            "statement": "Analyze contemporary leadership models and practices from the perspective of innovation in a global environment.",
+            "achievement": "Proficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/45",
+            "label": "mba6006-2",
+            "statement": "Assess the behaviors that drive innovation and how leaders can use those behaviors to create innovative organizations.",
+            "achievement": "Basic"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/46",
+            "label": "mba6006-3",
+            "statement": "Assess what leaders of innovation do to shape organizational culture and processes.",
+            "achievement": "Proficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/47",
+            "label": "mba6006-4",
+            "statement": "Communicate in a manner that is professional and consistent with expectations for members of the business professions.",
+            "achievement": "Basic"
+          }
+        ]
+      },
+      {
+        "@id": "http://rails.kinexis.com:4000/course_sections/24",
+        "label": "MBA-FP6008-1",
+        "title": "MBA-FP 6008 Section 1",
+        "competencies": [
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/48",
+            "label": "mba6008-1",
+            "statement": "Apply the theories, models, and practices of economic theory to create value for the firm.",
+            "achievement": "NonProficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/49",
+            "label": "mba6008-2",
+            "statement": "Assess the impact of ethical and regulatory considerations on economic decisions",
+            "achievement": "Basic"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/50",
+            "label": "mba6008-3",
+            "statement": "Analyze the macroeconomic environment of corporate operations",
+            "achievement": "Proficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/51",
+            "label": "mba6008-4",
+            "statement": "Analyze the microeconomic environment of corporate operations",
+            "achievement": "Proficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/52",
+            "label": "mba6008-5",
+            "statement": "Communicate in a manner that is professional and consistent with expectations for members of the business professions.ply collaborative techniques to the virtual environment.",
+            "achievement": "NonProficient"
+          }
+        ]
+      },
+      {
+        "@id": "http://rails.kinexis.com:4000/course_sections/29",
+        "label": "MBA-FP6008-1",
+        "title": "MBA-FP 6008 Section 1",
+        "competencies": [
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/48",
+            "label": "mba6008-1",
+            "statement": "Apply the theories, models, and practices of economic theory to create value for the firm.",
+            "achievement": "Distinguished"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/49",
+            "label": "mba6008-2",
+            "statement": "Assess the impact of ethical and regulatory considerations on economic decisions",
+            "achievement": "Basic"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/50",
+            "label": "mba6008-3",
+            "statement": "Analyze the macroeconomic environment of corporate operations",
+            "achievement": "Basic"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/51",
+            "label": "mba6008-4",
+            "statement": "Analyze the microeconomic environment of corporate operations",
+            "achievement": "Proficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/52",
+            "label": "mba6008-5",
+            "statement": "Communicate in a manner that is professional and consistent with expectations for members of the business professions.ply collaborative techniques to the virtual environment.",
+            "achievement": "Distinguished"
+          }
+        ]
+      },
+      {
+        "@id": "http://rails.kinexis.com:4000/course_sections/30",
+        "label": "MBA-FP6012-1",
+        "title": "MBA-FP 6012 Section 1",
+        "competencies": [
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/53",
+            "label": "mba6012-1",
+            "statement": "Apply theories, models, and practices of marketing",
+            "achievement": "Proficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/54",
+            "label": "mba6012-2",
+            "statement": "Integrate fundamental principles and applications of marketing to address business problems.",
+            "achievement": "NonProficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/55",
+            "label": "mba6012-3",
+            "statement": "Develop innovative and sustainable solutions to strategic marketing challenges",
+            "achievement": "Distinguished"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/56",
+            "label": "mba6012-4",
+            "statement": "Integrate marketing analyses into general business management planning and decision making",
+            "achievement": "NonProficient"
+          },
+          {
+            "@id": "http://rails.kinexis.com:4000/competencies/57",
+            "label": "mba6012-5",
+            "statement": "Communicate in a manner that is professional and consistent with expectations for members of the business professions",
+            "achievement": "NonProficient"
+          }
+        ]
+      }
+    ]
+  },
+  "signature": {
+    "type": "GraphSignature2012",
+    "creator": "http://rails.kinexis.com:4000/users/6",
+    "created": "2015-10-07T11:47:25-07:00",
+    "signatureValue": "pf22qsGJO8WAlWVTK77Lu/gsTSakFt1qP3qUu6KdAWUjAbP4FKV2lLRAmfm26zjmObsUodDYtOQCOJJ+OKFMrLNodP4HNMC+jzLQB6+p0vJ2sAECXzqsE/KDbgMh3tzhpm0cYzg1llUda/dpNcARw29IuxOxJg+l5+f65LpVHtg="
+  }
+}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO `record_of_performances` (`created_at`, `extracted_at`, `organization_name`, `product_name`, `rop_id`, `rop_json`, `service_provider_name`, `updated_at`) VALUES ('2015-10-07 18:47:26', '2015-10-07 18:47:25', 'IMS Learning Institute, LLC', 'Elan/LuMoS', 'http://rails.kinexis.com:4000/c6aedd00-4f51-0133-896d-20c9d07c6451', '{\"@context\":{\"@vocab\":\"http://purl.kinexis.com:8888/ctx/cbe/v1/record_of_performance/\"},\"@id\":\"http://rails.kinexis.com:4000/c6aedd00-4f51-0133-896d-20c9d07c6451\",\"@type\":\"RecordOfPerformance\",\"created_at\":\"2015-10-07T11:47:25-07:00\",\"tool_consumer_profile\":{\"@id\":\"http://rails.kinexis.com:4000/lti2_tc/tool_consumer_profiles/\",\"lti_version\":\"LTI-2p0\",\"product_name\":\"Elan/LuMoS\",\"service_provider_name\":\"Elan University\"},\"user\":{\"@id\":\"http://rails.kinexis.com:4000/users/6\",\"familyName\":\"Arne\",\"givenName\":\"Tom\",\"email\":\"tarne@hotmail.com\",\"sourced_id\":0},\"organization\":{\"@id\":\"http://rails.kinexis.com:4000/organizations/3\",\"legal_name\":\"IMS Learning Institute, LLC\",\"website\":\"ili.imsglobal.org\"},\"program\":{\"@id\":\"http://rails.kinexis.com:4000/programs/3\",\"label\":\"Master of Business Admin FP\",\"degree_level\":\"MBA\",\"courses\":[{\"@id\":\"http://rails.kinexis.com:4000/course_sections/21\",\"label\":\"MBA-FP6004-1\",\"title\":\"MBA-FP 6004 Section 1\",\"competencies\":[{\"@id\":\"http://rails.kinexis.com:4000/competencies/39\",\"label\":\"\",\"statement\":\"Examine the use of critical, strategic, and ethical thinking in decision-making\",\"achievement\":\"Basic\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/40\",\"label\":\"mba6004-1\",\"statement\":\"Integrate the Internet, collaboration, and virtual environment strategies into general business management planning and decision-making.\",\"achievement\":\"Distinguished\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/41\",\"label\":\"mba6004-2\",\"statement\":\"Integrate business strategies into general business management planning and decision-making.\",\"achievement\":\"Proficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/42\",\"label\":\"mba6004-3\",\"statement\":\"Analyze relevant global business concerns for the future.\",\"achievement\":\"Proficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/43\",\"label\":\"mba6004-4\",\"statement\":\"Communicate in a manner that is professional and consistent with expectations for members of the business professions.\",\"achievement\":\"Basic\"}]},{\"@id\":\"http://rails.kinexis.com:4000/course_sections/23\",\"label\":\"MBA-FP6006-1\",\"title\":\"MBA-FP 6006 Section 1\",\"competencies\":[{\"@id\":\"http://rails.kinexis.com:4000/competencies/44\",\"label\":\"mba6006-1\",\"statement\":\"Analyze contemporary leadership models and practices from the perspective of innovation in a global environment.\",\"achievement\":\"Proficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/45\",\"label\":\"mba6006-2\",\"statement\":\"Assess the behaviors that drive innovation and how leaders can use those behaviors to create innovative organizations.\",\"achievement\":\"Basic\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/46\",\"label\":\"mba6006-3\",\"statement\":\"Assess what leaders of innovation do to shape organizational culture and processes.\",\"achievement\":\"Proficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/47\",\"label\":\"mba6006-4\",\"statement\":\"Communicate in a manner that is professional and consistent with expectations for members of the business professions.\",\"achievement\":\"Basic\"}]},{\"@id\":\"http://rails.kinexis.com:4000/course_sections/24\",\"label\":\"MBA-FP6008-1\",\"title\":\"MBA-FP 6008 Section 1\",\"competencies\":[{\"@id\":\"http://rails.kinexis.com:4000/competencies/48\",\"label\":\"mba6008-1\",\"statement\":\"Apply the theories, models, and practices of economic theory to create value for the firm.\",\"achievement\":\"NonProficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/49\",\"label\":\"mba6008-2\",\"statement\":\"Assess the impact of ethical and regulatory considerations on economic decisions\",\"achievement\":\"Basic\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/50\",\"label\":\"mba6008-3\",\"statement\":\"Analyze the macroeconomic environment of corporate operations\",\"achievement\":\"Proficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/51\",\"label\":\"mba6008-4\",\"statement\":\"Analyze the microeconomic environment of corporate operations\",\"achievement\":\"Proficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/52\",\"label\":\"mba6008-5\",\"statement\":\"Communicate in a manner that is professional and consistent with expectations for members of the business professions.ply collaborative techniques to the virtual environment.\",\"achievement\":\"NonProficient\"}]},{\"@id\":\"http://rails.kinexis.com:4000/course_sections/29\",\"label\":\"MBA-FP6008-1\",\"title\":\"MBA-FP 6008 Section 1\",\"competencies\":[{\"@id\":\"http://rails.kinexis.com:4000/competencies/48\",\"label\":\"mba6008-1\",\"statement\":\"Apply the theories, models, and practices of economic theory to create value for the firm.\",\"achievement\":\"Distinguished\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/49\",\"label\":\"mba6008-2\",\"statement\":\"Assess the impact of ethical and regulatory considerations on economic decisions\",\"achievement\":\"Basic\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/50\",\"label\":\"mba6008-3\",\"statement\":\"Analyze the macroeconomic environment of corporate operations\",\"achievement\":\"Basic\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/51\",\"label\":\"mba6008-4\",\"statement\":\"Analyze the microeconomic environment of corporate operations\",\"achievement\":\"Proficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/52\",\"label\":\"mba6008-5\",\"statement\":\"Communicate in a manner that is professional and consistent with expectations for members of the business professions.ply collaborative techniques to the virtual environment.\",\"achievement\":\"Distinguished\"}]},{\"@id\":\"http://rails.kinexis.com:4000/course_sections/30\",\"label\":\"MBA-FP6012-1\",\"title\":\"MBA-FP 6012 Section 1\",\"competencies\":[{\"@id\":\"http://rails.kinexis.com:4000/competencies/53\",\"label\":\"mba6012-1\",\"statement\":\"Apply theories, models, and practices of marketing\",\"achievement\":\"Proficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/54\",\"label\":\"mba6012-2\",\"statement\":\"Integrate fundamental principles and applications of marketing to address business problems.\",\"achievement\":\"NonProficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/55\",\"label\":\"mba6012-3\",\"statement\":\"Develop innovative and sustainable solutions to strategic marketing challenges\",\"achievement\":\"Distinguished\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/56\",\"label\":\"mba6012-4\",\"statement\":\"Integrate marketing analyses into general business management planning and decision making\",\"achievement\":\"NonProficient\"},{\"@id\":\"http://rails.kinexis.com:4000/competencies/57\",\"label\":\"mba6012-5\",\"statement\":\"Communicate in a manner that is professional and consistent with expectations for members of the business professions\",\"achievement\":\"NonProficient\"}]}]},\"signature\":{\"type\":\"GraphSignature2012\",\"creator\":\"http://rails.kinexis.com:4000/users/6\",\"created\":\"2015-10-07T11:47:25-07:00\",\"signatureValue\":\"pf22qsGJO8WAlWVTK77Lu/gsTSakFt1qP3qUu6KdAWUjAbP4FKV2lLRAmfm26zjmObsUodDYtOQCOJJ+OKFMrLNodP4HNMC+jzLQB6+p0vJ2sAECXzqsE/KDbgMh3tzhpm0cYzg1llUda/dpNcARw29IuxOxJg+l5+f65LpVHtg=\"}}', 'Elan University', '2015-10-07 18:47:26')[0m
+  [1m[35m (0.5ms)[0m  COMMIT
+  Rendered text template (0.0ms)
+Completed 200 OK in 50ms (Views: 2.2ms | ActiveRecord: 21.8ms)
+Started GET "/record_of_performance" for 127.0.0.1 at 2015-10-07 11:49:58 -0700
+Started GET "/record_of_performances" for 127.0.0.1 at 2015-10-07 11:50:04 -0700
+Processing by RecordOfPerformancesController#index as HTML
+  [1m[36mRecordOfPerformance Load (0.4ms)[0m  [1mSELECT `record_of_performances`.* FROM `record_of_performances`[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+Started GET "/record_of_performances/9" for 127.0.0.1 at 2015-10-07 11:50:12 -0700
+Processing by RecordOfPerformancesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mRecordOfPerformance Load (0.6ms)[0m  SELECT  `record_of_performances`.* FROM `record_of_performances`  WHERE `record_of_performances`.`id` = 9 LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+Started GET "/record_of_performances" for 127.0.0.1 at 2015-10-07 11:56:36 -0700
+Processing by RecordOfPerformancesController#index as HTML
+  [1m[36mRecordOfPerformance Load (0.7ms)[0m  [1mSELECT `record_of_performances`.* FROM `record_of_performances`[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 14ms (Views: 2.2ms | ActiveRecord: 0.7ms)
+Started GET "/users" for 127.0.0.1 at 2015-10-07 11:56:48 -0700
+Started GET "/record_of_performances" for 127.0.0.1 at 2015-10-07 11:56:59 -0700
+Processing by RecordOfPerformancesController#index as HTML
+  [1m[35mRecordOfPerformance Load (0.4ms)[0m  SELECT `record_of_performances`.* FROM `record_of_performances`
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.4ms)
