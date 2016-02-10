@@ -81,6 +81,7 @@ CREATE TABLE `lti2_tp_registrations` (
   `reg_password` varchar(255) DEFAULT NULL,
   `tc_oauth_half_secret` text,
   `tc_profile_url` varchar(255) DEFAULT NULL,
+  `tool_proxy_guid` varchar(255) DEFAULT NULL,
   `launch_presentation_return_url` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `message_type` varchar(255) DEFAULT NULL,
